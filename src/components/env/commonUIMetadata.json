@@ -1,0 +1,59 @@
+{
+  "signUp": {
+    "heading": "Sign up",
+    "fields": [
+      {
+        "type": "text",
+        "placeholder": "Email",
+        "name": "email",
+        "validatorSelector": "freeTextValidation"
+      },
+      {
+        "type": "text",
+        "placeholder": "User Name",
+        "name": "userName",
+        "validatorSelector": "freeTextValidation"
+      },
+      {
+        "type": "password",
+        "placeholder": "Password",
+        "name": "password",
+        "validatorSelector": "signUpPasswordValidation"
+      },
+      {
+        "type": "password",
+        "placeholder": "Confirm Password",
+        "name": "confirmPassword",
+        "validatorSelector": "confirmPasswordTextValidation"
+      },
+      {
+        "type": "select",
+        "name": "role",
+        "label": "Select a Role",
+        "options": [],
+        "validatorSelector": "dropdownValidation"
+      }
+    ]
+  },
+  "login": {
+    "heading": "Login",
+    "fields": [
+      {
+        "id": "email_id",
+        "type": "text",
+        "placeholder": "Email",
+        "name": "email",
+        "validatorSelector": "freeTextValidation",
+        "defaultValue": "test20@gmail.com"
+      },
+      {
+        "id": "password_id",
+        "type": "password",
+        "placeholder": "Password",
+        "name": "password",
+        "validatorSelector": "passwordTextValidation",
+        "defaultValue": "123"
+      }
+    ]
+  }
+}
