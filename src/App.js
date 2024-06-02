@@ -14,6 +14,7 @@ import Counter from "./components/menuItems/Projects/Easy/Counter/Counter";
 import Resume from "./components/menuItems/Resume/Resume";
 import MyResume from "./components/menuItems/Resume/MyResume/MyResume";
 import Easy from "./components/menuItems/Projects/Easy/Easy";
+import RandomJokes from "./components/menuItems/Projects/Easy/RandomJokes/RandomJokes";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,10 @@ function App() {
                         {
                           path: "counter",
                           element: <Counter />,
+                        },
+                        {
+                          path: "random-jokes",
+                          element: <RandomJokes />,
                         },
                       ],
                     },

@@ -1,0 +1,26 @@
+.joke-container {
+  max-width: 30em;
+  margin: auto;
+  padding: 3em;
+  font-size: larger;
+  text-align: center;
+  box-shadow: 12px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid lightgray;
+  border-radius: 14px;
+  background-color: #fff;
+  margin-top: 5em;
+}
+.joke-header {
+  margin-bottom: 2em;
+}
+
+.get-joke-btn {
+  margin-top: 2em;
+  font-size: large;
+  background-color: rgb(95, 95, 255);
+  color: white;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  border: none;
+  cursor: pointer;
+}
