@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 
-const CS = () => {
+const Easy = () => {
   return (
     <>
-      <div>CS</div>
       <Outlet />
     </>
   );
 };
 
-export default CS;
+export default Easy;

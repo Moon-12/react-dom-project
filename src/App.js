@@ -9,16 +9,11 @@ import Home from "./components/Home/Home";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./components/routes/PrivateRoutes";
-import StudyMaterials from "./components/menuItems/StudyMaterials/StudyMaterials";
-import Academics from "./components/menuItems/Academics/Academics";
-import DegreePrograms from "./components/menuItems/Academics/DegreePrograms/DegreePrograms";
-import UnderGradProgram from "./components/menuItems/Academics/DegreePrograms/UnderGradProgram/UnderGradProgram";
-import Catalog from "./components/menuItems/StudyMaterials/Catalog/Catalog";
-import Calendar from "./components/menuItems/StudyMaterials/Catalog/Calendar/Calendar";
-import Courses from "./components/menuItems/StudyMaterials/Catalog/Courses/Courses";
-import GraduatePrograms from "./components/menuItems/Academics/GraduatePrograms/GraduatePrograms";
-import MIS from "./components/menuItems/Academics/GraduatePrograms/MIS/MIS";
-import CS from "./components/menuItems/Academics/GraduatePrograms/CS/CS";
+import Projects from "./components/menuItems/Projects/Projects";
+import Counter from "./components/menuItems/Projects/Easy/Counter/Counter";
+import Resume from "./components/menuItems/Resume/Resume";
+import MyResume from "./components/menuItems/Resume/MyResume/MyResume";
+import Easy from "./components/menuItems/Projects/Easy/Easy";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,53 +30,28 @@ function App() {
               element: <User />,
               children: [
                 {
-                  path: "academics",
-                  element: <Academics />,
+                  path: "projects",
+                  element: <Projects />,
                   children: [
                     {
-                      path: "degrees-and-programs",
-                      element: <DegreePrograms />,
+                      path: "easy",
+                      element: <Easy />,
                       children: [
                         {
-                          path: "undergraduate-programs",
-                          element: <UnderGradProgram />,
-                        },
-                        {
-                          path: "graduate-programs",
-                          element: <GraduatePrograms />,
-                          children: [
-                            {
-                              path: "mis",
-                              element: <MIS />,
-                            },
-                            {
-                              path: "cs",
-                              element: <CS />,
-                            },
-                          ],
+                          path: "counter",
+                          element: <Counter />,
                         },
                       ],
                     },
-                    { path: "study-materials", element: <StudyMaterials /> },
                   ],
                 },
                 {
-                  path: "study-materials",
-                  element: <StudyMaterials />,
+                  path: "resume",
+                  element: <Resume />,
                   children: [
                     {
-                      path: "catalog",
-                      element: <Catalog />,
-                      children: [
-                        {
-                          path: "calendar",
-                          element: <Calendar />,
-                        },
-                        {
-                          path: "courses",
-                          element: <Courses />,
-                        },
-                      ],
+                      path: "my-resume",
+                      element: <MyResume />,
                     },
                   ],
                 },
