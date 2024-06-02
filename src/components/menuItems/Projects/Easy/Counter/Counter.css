@@ -1,0 +1,21 @@
+.counter-btns {
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: center;
+}
+
+.counter-btns button {
+  background-color: rgba(46, 59, 230, 0.781);
+  color: white;
+  border: none;
+  padding: 1em;
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
