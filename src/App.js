@@ -15,6 +15,7 @@ import Resume from "./components/menuItems/Resume/Resume";
 import MyResume from "./components/menuItems/Resume/MyResume/MyResume";
 import Easy from "./components/menuItems/Projects/Easy/Easy";
 import RandomJokes from "./components/menuItems/Projects/Easy/RandomJokes/RandomJokes";
+import MorseTranslator from "./components/menuItems/Projects/Easy/MorseTranslator/MorseTranslator";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,6 +46,10 @@ function App() {
                         {
                           path: "random-jokes",
                           element: <RandomJokes />,
+                        },
+                        {
+                          path: "morse-translator",
+                          element: <MorseTranslator />,
                         },
                       ],
                     },

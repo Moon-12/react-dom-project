@@ -44,7 +44,7 @@ const LoginPage = () => {
                 placeholder={field.placeholder}
                 name={field.name}
                 inpValidation={validators[field.validatorSelector]}
-                // defaultValue={field.defaultValue}
+                defaultValue={field.defaultValue}
               />
             );
           })}

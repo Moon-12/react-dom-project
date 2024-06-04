@@ -49,6 +49,12 @@ export const mockResponse = {
               MENU_NAME: "Random Jokes",
               SubMenus: [],
             },
+            {
+              PARENT_ID: 502,
+              ID: 604,
+              MENU_NAME: "Morse Translator",
+              SubMenus: [],
+            },
           ],
         },
       ],
@@ -74,5 +80,9 @@ export const mockResponse = {
         },
       ],
     },
+  },
+  authResponse: {
+    accessToken:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInVzZXJuYW1lIjoidGVzdDIwIiwiZW1haWwiOiJ0ZXN0MjBAZ21haWwuY29tIiwicm9sZUlkIjoxMDAsImlhdCI6MTcxNzQ3MDAxOSwiZXhwIjoxNzE3NDcwMDI5fQ.01Oq38m5twr-Kvfh4beO2jPuLjD2NH1Uzi-w24HVQ4k",
   },
 };
