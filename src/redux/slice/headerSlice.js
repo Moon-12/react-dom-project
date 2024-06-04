@@ -1,17 +1,18 @@
 // src/features/header/headerSlice.js
 
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { mockResponse } from "../../components/mockResponses/mockResponse";
 
 // Async thunk for fetching the header
 export const fetchHeader = createAsyncThunk(
   "header/fetchHeader",
   async ({ roleId }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/header/${roleId}`
-      );
-      return response.data;
+      // const response = await axios.get(
+      //   `http://localhost:8080/header/${roleId}`
+      // );
+      return mockResponse.headerResponse;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

@@ -6,6 +6,7 @@ import {
   removeSessionToken,
   getSessionLoginResponse,
 } from "../../utils/tokenUtils";
+import { mockResponse } from "../../components/mockResponses/mockResponse";
 
 // Thunk for logging in
 export const loginUserThunk = createAsyncThunk(
@@ -13,14 +14,14 @@ export const loginUserThunk = createAsyncThunk(
   async (userCredentials, { rejectWithValue }) => {
     try {
       //TODO if unexpired token don't call api
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
-        userCredentials
-      );
-      setSessionToken(response.data.accessToken);
-      return response.data;
+      // const response = await axios.post(
+      //   "http://localhost:8080/api/auth/login",
+      //   userCredentials
+      // );
+      setSessionToken(mockResponse.authResponse.accessToken);
+      return mockResponse.authResponse;
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err);
     }
   }
 );

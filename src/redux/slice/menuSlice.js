@@ -2,16 +2,17 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { mockResponse } from "../../components/mockResponses/mockResponse";
 
 // Async thunk for fetching the header
 export const fetchMenu = createAsyncThunk(
   "menu/fetchMenu",
   async ({ headerId }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/menu/${headerId}`
-      );
-      return response.data;
+      // const response = await axios.get(
+      //   `http://localhost:8080/menu/${headerId}`
+      // );
+      return mockResponse.menuResponse[headerId];
     } catch (err) {
       return rejectWithValue(err.response.data);
     }

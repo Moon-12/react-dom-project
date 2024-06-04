@@ -27,7 +27,7 @@ body {
   /*   flex: 1 1 auto; */
   flex-grow: 1; /* width: calc(100% - 200px); */
   overflow: auto;
-  background: #1abc9c;
+  background: white;
 }
 .content-body .sidenav,
 .content-body .ads {
