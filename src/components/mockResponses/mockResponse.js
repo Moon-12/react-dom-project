@@ -55,6 +55,12 @@ export const mockResponse = {
               MENU_NAME: "Morse Translator",
               SubMenus: [],
             },
+            {
+              PARENT_ID: 502,
+              ID: 605,
+              MENU_NAME: "Jwt Decoder",
+              SubMenus: [],
+            },
           ],
         },
       ],
