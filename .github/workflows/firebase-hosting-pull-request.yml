@@ -19,4 +19,4 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_ASHWIJA_NAYAK }}"
           projectId: "${{ secrets.PROD_PROJECT_ID }}"
-          target: "dev-ashwija-nayak"
+          target: "dev-instance"

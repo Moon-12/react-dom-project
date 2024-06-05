@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "ashwija-nayak"
+  },
+  "targets": {
+    "ashwija-nayak": {
+      "hosting": {
+        "dev-instance": [
+          "dev-ashwija-nayak"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

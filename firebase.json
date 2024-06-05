@@ -11,7 +11,7 @@
       ]
     },
     {
-      "target": "dev-ashwija-nayak",
+      "target": "dev-instance",
       "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
