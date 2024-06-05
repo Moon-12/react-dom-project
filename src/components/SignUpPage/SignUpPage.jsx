@@ -20,7 +20,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     dispatch(fetchRoles());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (roles.length > 0) {

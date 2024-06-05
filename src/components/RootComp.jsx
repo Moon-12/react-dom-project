@@ -1,12 +1,10 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import "./RootComp.css";
 import HeaderBar from "./HeaderBar/HeaderBar";
 import SideMenu from "./SideMenu/SideMenu";
 
 const RootComp = () => {
-  const location = useLocation();
-
   return (
     <div className="container">
       <header className="header">
