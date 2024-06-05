@@ -1,0 +1,30 @@
+.jwt-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jwt-container textarea {
+  padding: 1em;
+  min-width: 20em;
+  height: 10em;
+  font-size: large;
+  font-weight: bold;
+}
+.jwt-container textarea.jwt-header {
+  color: red;
+  font-weight: bold;
+}
+
+.jwt-container textarea.jwt-payload {
+  color: green;
+  font-weight: bold;
+}
+
+.jwt-sign {
+  border: 1px solid black;
+  width: 20em;
+  height: 10em;
+  padding: 1em;
+  color: #00b9f1;
+  font-weight: bold;
+}
