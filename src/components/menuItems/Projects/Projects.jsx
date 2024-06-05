@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 
-const DegreePrograms = () => {
+const Projects = () => {
   return (
     <>
-      <div>DegreePrograms</div>
       <Outlet />
     </>
   );
 };
 
-export default DegreePrograms;
+export default Projects;

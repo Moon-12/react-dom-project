@@ -1,4 +1,4 @@
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import uiMetaData from "../env/commonUIMetadata.json";
 import Input from "../Input/Input";
 import { validators } from "../../utils/fieldValidation";
@@ -29,7 +29,7 @@ const LoginPage = () => {
     if (isLoggedIn) {
       navigate("/landing-page");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="login-container">
@@ -44,7 +44,7 @@ const LoginPage = () => {
                 placeholder={field.placeholder}
                 name={field.name}
                 inpValidation={validators[field.validatorSelector]}
-                // defaultValue={field.defaultValue}
+                defaultValue={field.defaultValue}
               />
             );
           })}

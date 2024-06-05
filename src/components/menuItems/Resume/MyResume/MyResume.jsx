@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-const MIS = () => {
+const MyResume = () => {
   return (
     <>
-      <div>MIS</div>
+      <div>my resume</div>
       <Outlet />
     </>
   );
 };
 
-export default MIS;
+export default MyResume;
