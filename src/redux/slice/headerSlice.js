@@ -1,7 +1,6 @@
 // src/features/header/headerSlice.js
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { mockResponse } from "../../components/mockResponses/mockResponse";
 
 // Async thunk for fetching the header

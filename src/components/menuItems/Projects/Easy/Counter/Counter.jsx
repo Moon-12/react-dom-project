@@ -16,6 +16,7 @@ const Counter = () => {
       case "reset":
         setCount(0);
         break;
+      default:
     }
   };
   return (

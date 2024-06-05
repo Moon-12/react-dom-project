@@ -1,4 +1,3 @@
-import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import "./JwtDecoder.css";
 
@@ -33,7 +32,7 @@ const JwtDecoder = () => {
       setErr("");
       setHeader(base64UrlDecode(jwtParts[0]));
       setPayload(base64UrlDecode(jwtParts[1]));
-      const signature = jwtParts[2];
+      //const signature = jwtParts[2];
     } catch (err) {
       setErr("Invalid Signature");
     }

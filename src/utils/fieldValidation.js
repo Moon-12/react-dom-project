@@ -5,14 +5,14 @@ const requiredValidation = {
   },
 };
 
-let minlegthValidator = (size) => {
-  return {
-    minLength: {
-      value: size,
-      message: `min ${size} characters`,
-    },
-  };
-};
+// let minlegthValidator = (size) => {
+//   return {
+//     minLength: {
+//       value: size,
+//       message: `min ${size} characters`,
+//     },
+//   };
+// };
 
 const passwordPatternValidation = {
   pattern: {
