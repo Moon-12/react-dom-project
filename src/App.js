@@ -75,7 +75,7 @@ function App() {
           ],
         },
         { path: "/", element: <Home /> },
-        { path: "/sign-up", element: <SignUpPage /> },
+        // { path: "/sign-up", element: <SignUpPage /> },
         { path: "/login", element: <LoginPage /> },
       ],
     },

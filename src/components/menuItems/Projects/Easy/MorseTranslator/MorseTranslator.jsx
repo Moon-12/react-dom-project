@@ -13,7 +13,6 @@ const MorseTranslator = () => {
   };
 
   const getTextVal = (morse) => {
-    console.log("mo", morse);
     const codeObject = morseCodeArray.find((code) => code.morse === morse);
     return codeObject.character;
   };

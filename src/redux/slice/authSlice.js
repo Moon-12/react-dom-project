@@ -6,22 +6,28 @@ import {
   removeSessionToken,
   getSessionLoginResponse,
 } from "../../utils/tokenUtils";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { mockResponse } from "../../components/mockResponses/mockResponse";
+import { auth } from "../../firebase/firebaseConfig";
 
 // Thunk for logging in
-export const loginUserThunk = createAsyncThunk(
+export const signInGoogleThunk = createAsyncThunk(
   "auth/loginUser",
-  async (userCredentials, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
+    const provider = new GoogleAuthProvider();
     try {
-      //TODO if unexpired token don't call api
-      // const response = await axios.post(
-      //   "http://localhost:8080/api/auth/login",
-      //   userCredentials
-      // );
-      setSessionToken(mockResponse.authResponse.accessToken);
-      return mockResponse.authResponse;
-    } catch (err) {
-      return rejectWithValue(err);
+      const result = await signInWithPopup(auth, provider);
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      const accessToken = result.user.accessToken;
+      setSessionToken(accessToken);
+      return { accessToken };
+    } catch (error) {
+      const errorMessage = error.message;
+      rejectWithValue(errorMessage);
     }
   }
 );
@@ -44,16 +50,16 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUserThunk.pending, (state) => {
+      .addCase(signInGoogleThunk.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(loginUserThunk.fulfilled, (state, action) => {
+      .addCase(signInGoogleThunk.fulfilled, (state, action) => {
         const { accessToken } = action.payload;
         state.token = accessToken;
         state.status = "fulfilled";
         state.loginResponse = getSessionLoginResponse();
       })
-      .addCase(loginUserThunk.rejected, (state, action) => {
+      .addCase(signInGoogleThunk.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });
