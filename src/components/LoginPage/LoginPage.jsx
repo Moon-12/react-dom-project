@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import uiMetaData from "../env/commonUIMetadata.json";
-import { useForm } from "react-hook-form";
 import "./LoginPage.css";
 import { signInGoogleThunk } from "../../redux/slice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +7,6 @@ import { useEffect } from "react";
 import { GoogleIcon } from "../../icons/GoogleIcon";
 
 const LoginPage = () => {
-  const methods = useForm();
-
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(
     (state) => state.auth.loginResponse.isLoggedIn
