@@ -12,7 +12,7 @@ jobs:
     if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     env:
-      REACT_APP_FIREBASE_TOKEN: "${{ secrets.FIREBASE_LOGIN_TOKEN }}"
+      REACT_APP_FIREBASE_TOKEN: "${{ secrets.FIREBASE_DEV_LOGIN_TOKEN }}"
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build

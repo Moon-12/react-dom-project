@@ -9,6 +9,8 @@ name: Deploy to Production instance
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_FIREBASE_TOKEN: "${{ secrets.FIREBASE_LOGIN_TOKEN }}"
     steps:
       - uses: actions/checkout@v4
       - run: npm --version

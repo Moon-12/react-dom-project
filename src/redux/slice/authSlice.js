@@ -1,14 +1,8 @@
 // authSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-import {
-  setSessionToken,
-  removeSessionToken,
-  getSessionLoginResponse,
-} from "../../utils/tokenUtils";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
-
+import { signOut } from "firebase/auth";
 // Thunk for logging in
 export const signInGoogleThunk = createAsyncThunk(
   "auth/loginUser",
@@ -21,9 +15,10 @@ export const signInGoogleThunk = createAsyncThunk(
       // const credential = GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
 
-      const accessToken = result.user.accessToken;
-      setSessionToken(accessToken);
-      return { accessToken };
+      // const accessToken = result.user.accessToken;
+      // setSessionToken(accessToken);
+      // return { accessToken };
+      return result;
     } catch (error) {
       const errorMessage = error.message;
       rejectWithValue(errorMessage);
@@ -34,17 +29,18 @@ export const signInGoogleThunk = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    loginResponse: getSessionLoginResponse(),
+    loginResponse: auth.currentUser,
     status: "idle",
   },
   reducers: {
-    setToken: (state, action) => {
-      state.token = action.payload;
-      setSessionToken(action.payload);
-    },
-    clearToken: (state) => {
-      removeSessionToken();
-      state.loginResponse = getSessionLoginResponse();
+    signOutGoogle: () => {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+        })
+        .catch((error) => {
+          // An error happened.
+        });
     },
   },
   extraReducers: (builder) => {
@@ -53,10 +49,9 @@ const authSlice = createSlice({
         state.status = "loading";
       })
       .addCase(signInGoogleThunk.fulfilled, (state, action) => {
-        const { accessToken } = action.payload;
-        state.token = accessToken;
+        const { user } = action.payload;
         state.status = "fulfilled";
-        state.loginResponse = getSessionLoginResponse();
+        state.loginResponse = user;
       })
       .addCase(signInGoogleThunk.rejected, (state, action) => {
         state.status = "failed";
@@ -65,5 +60,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { clearToken, setToken } = authSlice.actions;
+export const { signOutGoogle } = authSlice.actions;
 export default authSlice.reducer;

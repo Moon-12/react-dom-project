@@ -8,9 +8,7 @@ import { GoogleIcon } from "../../icons/GoogleIcon";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(
-    (state) => state.auth.loginResponse.isLoggedIn
-  );
+  const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   const { login } = uiMetaData;
   const navigate = useNavigate();
 

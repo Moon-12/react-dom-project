@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const isLoggedIn = useSelector(
-    (state) => state.auth.loginResponse.isLoggedIn
-  );
+  const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   useEffect(() => {
     console.count("home loggedin state change");
   }, [isLoggedIn]);

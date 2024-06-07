@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import "./HeaderBar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearMenu, fetchMenu } from "../../redux/slice/menuSlice";
+import { fetchMenu } from "../../redux/slice/menuSlice";
 import { useEffect } from "react";
 import {
   clearHeaders,
   fetchHeader,
   setcurrentHeaderRoute,
 } from "../../redux/slice/headerSlice";
-import { clearToken } from "../../redux/slice/authSlice";
+import { signOutGoogle } from "../../redux/slice/authSlice";
 
 const HeaderBar = () => {
   const roleId = useSelector(
@@ -33,8 +33,7 @@ const HeaderBar = () => {
   };
 
   const handleLogoutFn = () => {
-    dispatch(clearMenu());
-    dispatch(clearToken());
+    dispatch(signOutGoogle());
   };
 
   return (
@@ -57,7 +56,7 @@ const HeaderBar = () => {
             );
           })}
       </div>
-      {loginResponse.isLoggedIn ? (
+      {loginResponse ? (
         <Link to="/login" className="header-links" onClick={handleLogoutFn}>
           Logout
         </Link>
