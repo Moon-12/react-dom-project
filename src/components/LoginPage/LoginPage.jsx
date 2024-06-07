@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import uiMetaData from "../env/commonUIMetadata.json";
-import Input from "../Input/Input";
-import { validators } from "../../utils/fieldValidation";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import "./LoginPage.css";
 import { signInGoogleThunk } from "../../redux/slice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
