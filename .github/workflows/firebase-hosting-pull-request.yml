@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REACT_APP_FIREBASE_TOKEN: "${{ secrets.FIREBASE_DEV_LOGIN_TOKEN }}"
+      REACT_APP_PROJECT_ICON_TOKEN: "${{secrets.FIREBASE_PROJECT_ICON_TOKEN}}"
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
