@@ -8,7 +8,7 @@ import {
   fetchHeader,
   setcurrentHeaderRoute,
 } from "../../redux/slice/headerSlice";
-import { signOutGoogle } from "../../redux/slice/authSlice";
+import { signOutGoogleThunk } from "../../redux/slice/authSlice";
 
 const HeaderBar = () => {
   const roleId = useSelector(
@@ -33,7 +33,7 @@ const HeaderBar = () => {
   };
 
   const handleLogoutFn = () => {
-    dispatch(signOutGoogle());
+    dispatch(signOutGoogleThunk());
   };
 
   return (
