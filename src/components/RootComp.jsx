@@ -8,6 +8,7 @@ import { auth } from "../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setLogInResponse } from "../redux/slice/authSlice";
+import Footer from "./Footer/Footer";
 
 const RootComp = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ const RootComp = () => {
         </main>
         <aside className="ads"></aside>
       </div>
-      <footer className="footer"></footer>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
   );
 };
