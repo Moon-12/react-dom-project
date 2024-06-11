@@ -1,19 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import uiMetaData from "../env/commonUIMetadata.json";
 import "./LoginPage.css";
-import { signInGoogleThunk } from "../../redux/slice/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { GoogleIcon } from "../../icons/GoogleIcon";
+import { auth } from "../../firebase/firebaseConfig";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
+  const [err, setErr] = useState("");
   const { login } = uiMetaData;
   const navigate = useNavigate();
 
   const handleGoogleSignInFn = async () => {
-    await dispatch(signInGoogleThunk());
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (err) {
+      setErr(err.message);
+    }
   };
 
   useEffect(() => {

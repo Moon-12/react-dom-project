@@ -21,7 +21,7 @@ const RootComp = () => {
         dispatch(setLogInResponse(""));
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container">

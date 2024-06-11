@@ -2,15 +2,17 @@ import { Link } from "react-router-dom";
 import "./HeaderBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMenu } from "../../redux/slice/menuSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   clearHeaders,
   fetchHeader,
   setcurrentHeaderRoute,
 } from "../../redux/slice/headerSlice";
-import { signOutGoogleThunk } from "../../redux/slice/authSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
 
 const HeaderBar = () => {
+  const [err, setErr] = useState("");
   const roleId = useSelector(
     (state) => state.auth.loginResponse && state.auth.loginResponse.roleId
   );
@@ -32,8 +34,12 @@ const HeaderBar = () => {
     dispatch(fetchMenu({ headerId: header.id }));
   };
 
-  const handleLogoutFn = () => {
-    dispatch(signOutGoogleThunk());
+  const handleLogoutFn = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      setErr(error.message);
+    }
   };
 
   return (
