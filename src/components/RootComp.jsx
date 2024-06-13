@@ -17,7 +17,13 @@ const RootComp = () => {
     //This is a firebase method,which gets called automatically when auth state changes
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(setLogInResponse(user.uid));
+        let role = "";
+        if (user.isAnonymous) {
+          role = "anonymous";
+        } else {
+          role = "super_guest";
+        }
+        dispatch(setLogInResponse({ uid: user.uid, role }));
       } else {
         dispatch(setLogInResponse(""));
       }

@@ -5,11 +5,14 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     loginResponse: "",
+    role: "",
     status: "idle",
   },
   reducers: {
     setLogInResponse: (state, action) => {
-      state.loginResponse = action.payload;
+      const { uid, role } = action.payload || {};
+      state.loginResponse = uid;
+      state.role = role;
     },
   },
 });
