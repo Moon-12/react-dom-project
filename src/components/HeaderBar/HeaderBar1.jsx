@@ -7,9 +7,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
@@ -17,11 +15,7 @@ import "./HeaderBar.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  clearHeaders,
-  fetchHeader,
-  setcurrentHeaderRoute,
-} from "../../redux/slice/headerSlice";
+import { clearHeaders, fetchHeader } from "../../redux/slice/headerSlice";
 import { useEffect } from "react";
 
 const pages = [
@@ -36,7 +30,6 @@ const HeaderBar1 = () => {
   const role = useSelector((state) => state.auth.role);
   const loginResponse = useSelector((state) => state.auth.loginResponse);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const headers = useSelector((state) => state.header.headers);
   console.log("he", headers);
@@ -58,9 +51,6 @@ const HeaderBar1 = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   const handleLogoutFn = async () => {
     try {
       await signOut(auth);
