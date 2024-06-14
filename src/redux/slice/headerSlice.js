@@ -1,19 +1,19 @@
 // src/features/header/headerSlice.js
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { mockResponse } from "../../components/mockResponses/mockResponse";
+import { fireStoreDB } from "../../firebase/firebaseConfig";
+import { getDoc, doc } from "firebase/firestore";
 
 // Async thunk for fetching the header
 export const fetchHeader = createAsyncThunk(
   "header/fetchHeader",
-  async ({ roleId }, { rejectWithValue }) => {
+  async ({ role }, { rejectWithValue }) => {
     try {
-      // const response = await axios.get(
-      //   `http://localhost:8080/header/${roleId}`
-      // );
-      return mockResponse.headerResponse;
+      const metaDataDocRef = doc(fireStoreDB, "common", "meta-data");
+      const docSnap = await getDoc(metaDataDocRef);
+      if (docSnap.exists()) return docSnap.data();
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err.message);
     }
   }
 );
@@ -21,7 +21,7 @@ export const fetchHeader = createAsyncThunk(
 const headerSlice = createSlice({
   name: "header",
   initialState: {
-    headers: null,
+    headers: [],
     currentHeaderRoute: "",
     status: "idle",
     error: null,
@@ -32,7 +32,7 @@ const headerSlice = createSlice({
       state.currentHeaderRoute = currentHeaderRoute;
     },
     clearHeaders: (state) => {
-      state.headers = null;
+      state.headers = [];
       state.currentHeaderRoute = "";
     },
   },
@@ -42,8 +42,9 @@ const headerSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchHeader.fulfilled, (state, action) => {
+        const { header } = action.payload;
         state.status = "succeeded";
-        state.headers = action.payload.data;
+        state.headers = header;
       })
       .addCase(fetchHeader.rejected, (state, action) => {
         state.status = "failed";

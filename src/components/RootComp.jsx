@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 import "./RootComp.css";
-import HeaderBar from "./HeaderBar/HeaderBar";
+import HeaderBar1 from "./HeaderBar/HeaderBar1";
 import SideMenu from "./SideMenu/SideMenu";
 import { useEffect } from "react";
 import { auth, fireStoreDB } from "../firebase/firebaseConfig";
@@ -30,6 +30,7 @@ const RootComp = () => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const role = await getUserRole(user);
+        //const role = "admin";
         dispatch(setLogInResponse({ uid: user.uid, role }));
       } else {
         dispatch(setLogInResponse(""));
@@ -40,7 +41,7 @@ const RootComp = () => {
   return (
     <div className="container">
       <header className="header">
-        <HeaderBar />
+        <HeaderBar1 />
       </header>
       <div className="content-body">
         <nav className="sidenav">
