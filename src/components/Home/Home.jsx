@@ -12,7 +12,7 @@ const Home = () => {
     if (isLoggedIn) {
       navigate("/landing-page");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   const handleGuestLoginFn = () => {
     signInAnonymously(auth)
