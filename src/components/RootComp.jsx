@@ -30,7 +30,6 @@ const RootComp = () => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const role = await getUserRole(user);
-        //const role = "admin";
         dispatch(setLogInResponse({ uid: user.uid, role }));
       } else {
         dispatch(setLogInResponse(""));

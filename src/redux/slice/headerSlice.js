@@ -42,7 +42,7 @@ const headerSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchHeader.fulfilled, (state, action) => {
-        const { header } = action.payload;
+        const { header } = action.payload || {};
         state.status = "succeeded";
         state.headers = header;
       })

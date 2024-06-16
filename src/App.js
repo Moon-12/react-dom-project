@@ -16,6 +16,7 @@ import Easy from "./components/menuItems/Projects/Easy/Easy";
 import RandomJokes from "./components/menuItems/Projects/Easy/RandomJokes/RandomJokes";
 import MorseTranslator from "./components/menuItems/Projects/Easy/MorseTranslator/MorseTranslator";
 import JwtDecoder from "./components/menuItems/Projects/Easy/JwtDecoder/JwtDecoder";
+import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
 
 function App() {
   const router = createBrowserRouter([
@@ -74,7 +75,15 @@ function App() {
           ],
         },
         { path: "/", element: <Home /> },
-        { path: "/login", element: <LoginPage /> },
+        {
+          path: "/login",
+          element:
+            process.env.NODE_ENV === "development" ? (
+              <EmulatorLogin />
+            ) : (
+              <LoginPage />
+            ),
+        },
       ],
     },
   ]);

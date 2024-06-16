@@ -32,7 +32,6 @@ const HeaderBar1 = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const headers = useSelector((state) => state.header.headers);
-  console.log("he", headers);
   const dispatch = useDispatch();
 
   useEffect(() => {
