@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebaseConfig";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -22,8 +19,7 @@ const EmulatorLogin = () => {
   const handleSubmit = (e) => {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
-      console.log("here");
+      //   const user = userCredential.user;
     });
   };
   return (
