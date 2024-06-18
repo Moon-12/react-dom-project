@@ -22,21 +22,21 @@ const MenuItem = ({ item, parentMenu }) => {
             className={`caret ${isOpen ? "caret-down" : ""}`}
             onClick={handleToggle}
           >
-            {item.MENU_NAME}
+            {item.menu_name}
           </span>
           <ul className={`nested ${isOpen ? "active" : ""}`}>
             {item.SubMenus.map((subItem) => (
               <MenuItem
-                key={subItem.ID}
+                key={subItem.id}
                 item={subItem}
-                parentMenu={parentMenu + routeFormatter(subItem.MENU_NAME)}
+                parentMenu={parentMenu + subItem.route}
               />
             ))}
           </ul>
         </>
       ) : (
         <Link className="menu-links" to={`${parentMenu}`}>
-          {item.MENU_NAME}
+          {item.menu_name}
         </Link>
       )}
     </li>
@@ -48,20 +48,20 @@ const SideMenu = () => {
   const currentHeaderRoute = useSelector(
     (state) => state.header.currentHeaderRoute
   );
+  console.log("me", menu);
   return (
     <ul id="myUL">
       {menu &&
-        menu.map((item) => (
-          <MenuItem
-            key={item.ID}
-            item={item}
-            parentMenu={
-              "/landing-page" +
-              currentHeaderRoute +
-              routeFormatter(item.MENU_NAME)
-            }
-          />
-        ))}
+        menu.map((item, index) => {
+          console.log(item);
+          return (
+            <MenuItem
+              key={item.id}
+              item={item}
+              parentMenu={"/landing-page" + currentHeaderRoute + item.route}
+            />
+          );
+        })}
     </ul>
   );
 };

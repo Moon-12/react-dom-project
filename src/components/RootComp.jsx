@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 import "./RootComp.css";
-import HeaderBar1 from "./HeaderBar/HeaderBar1";
+import HeaderBar from "./HeaderBar/HeaderBar";
 import SideMenu from "./SideMenu/SideMenu";
 import { useEffect } from "react";
 import { auth, fireStoreDB } from "../firebase/firebaseConfig";
@@ -40,7 +40,7 @@ const RootComp = () => {
   return (
     <div className="container">
       <header className="header">
-        <HeaderBar1 />
+        <HeaderBar />
       </header>
       <div className="content-body">
         <nav className="sidenav">

@@ -33,7 +33,7 @@ function App() {
               element: <User />,
               children: [
                 {
-                  path: "projects",
+                  path: "mini-dom-projects",
                   element: <Projects />,
                   children: [
                     {

@@ -26,6 +26,9 @@ const MenuSlice = createSlice({
     error: null,
   },
   reducers: {
+    setMenu: (state, action) => {
+      state.menu = action.payload.menu[0];
+    },
     clearMenu: (state) => {
       state.menu = [];
     },
@@ -46,5 +49,5 @@ const MenuSlice = createSlice({
   },
 });
 
-export const { clearMenu } = MenuSlice.actions;
+export const { clearMenu, setMenu } = MenuSlice.actions;
 export default MenuSlice.reducer;
