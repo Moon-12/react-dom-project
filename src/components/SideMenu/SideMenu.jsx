@@ -77,13 +77,14 @@ export default function SideMenu() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
-        {menu.map((item) => (
-          <MenuItem
-            key={item.id}
-            item={item}
-            parentMenu={"/landing-page" + currentHeaderRoute + item.route}
-          />
-        ))}
+        {menu &&
+          menu.map((item) => (
+            <MenuItem
+              key={item.id}
+              item={item}
+              parentMenu={"/landing-page" + currentHeaderRoute + item.route}
+            />
+          ))}
       </List>
       <Divider />
       <List></List>
@@ -92,7 +93,7 @@ export default function SideMenu() {
 
   return (
     <div>
-      <Drawer open={menu.length > 0} onClose={toggleDrawer}>
+      <Drawer open={menu && menu.length > 0} onClose={toggleDrawer}>
         {DrawerList}
       </Drawer>
     </div>

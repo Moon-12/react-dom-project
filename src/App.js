@@ -17,6 +17,9 @@ import RandomJokes from "./components/menuItems/Projects/Easy/RandomJokes/Random
 import MorseTranslator from "./components/menuItems/Projects/Easy/MorseTranslator/MorseTranslator";
 import JwtDecoder from "./components/menuItems/Projects/Easy/JwtDecoder/JwtDecoder";
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
+import ReactTips from "./components/menuItems/ReactTips/ReactTips";
+import FlashCard from "./components/menuItems/FlashCard/FlashCard";
+import ContactDetails from "./components/menuItems/ContactDetails/ContactDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -67,6 +70,28 @@ function App() {
                     {
                       path: "my-resume",
                       element: <MyResume />,
+                    },
+                  ],
+                },
+                {
+                  path: "react-tips",
+                  element: <ReactTips />,
+                },
+                {
+                  path: "react-interview-questions",
+                  children: [
+                    {
+                      path: "flash-card-game",
+                      element: <FlashCard />,
+                    },
+                  ],
+                },
+                {
+                  path: "about-me",
+                  children: [
+                    {
+                      path: "contact-details",
+                      element: <ContactDetails />,
                     },
                   ],
                 },
