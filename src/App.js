@@ -18,8 +18,8 @@ import MorseTranslator from "./components/menuItems/Projects/Easy/MorseTranslato
 import JwtDecoder from "./components/menuItems/Projects/Easy/JwtDecoder/JwtDecoder";
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
 import ReactTips from "./components/menuItems/ReactTips/ReactTips";
-import FlashCard from "./components/menuItems/FlashCard/FlashCard";
 import ContactDetails from "./components/menuItems/ContactDetails/ContactDetails";
+import FlashCardGame from "./components/menuItems/FlashCardGame/FlashCardGame";
 
 function App() {
   const router = createBrowserRouter([
@@ -82,7 +82,7 @@ function App() {
                   children: [
                     {
                       path: "flash-card-game",
-                      element: <FlashCard />,
+                      element: <FlashCardGame />,
                     },
                   ],
                 },
