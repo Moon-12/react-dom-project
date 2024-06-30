@@ -47,7 +47,6 @@ const Home = () => {
           <SideMenu />
         </nav>
         <main className="content">
-          back button
           <Outlet />
         </main>
         <aside className="ads"></aside>

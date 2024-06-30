@@ -2,7 +2,6 @@ import "./App.css";
 import ErrorPage from "./components/ErrorPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./components/routes/PrivateRoutes";
@@ -34,66 +33,64 @@ function App() {
             {
               path: "s",
               element: <SecureComp />,
+            },
+            {
+              path: "mini-dom-projects",
+              element: <Projects />,
               children: [
                 {
-                  path: "mini-dom-projects",
-                  element: <Projects />,
+                  path: "easy",
+                  element: <Easy />,
                   children: [
                     {
-                      path: "easy",
-                      element: <Easy />,
-                      children: [
-                        {
-                          path: "counter",
-                          element: <Counter />,
-                        },
-                        {
-                          path: "random-jokes",
-                          element: <RandomJokes />,
-                        },
-                        {
-                          path: "morse-translator",
-                          element: <MorseTranslator />,
-                        },
-                        {
-                          path: "jwt-decoder",
-                          element: <JwtDecoder />,
-                        },
-                      ],
+                      path: "counter",
+                      element: <Counter />,
+                    },
+                    {
+                      path: "random-jokes",
+                      element: <RandomJokes />,
+                    },
+                    {
+                      path: "morse-translator",
+                      element: <MorseTranslator />,
+                    },
+                    {
+                      path: "jwt-decoder",
+                      element: <JwtDecoder />,
                     },
                   ],
                 },
+              ],
+            },
+            {
+              path: "resume",
+              element: <Resume />,
+              children: [
                 {
-                  path: "resume",
-                  element: <Resume />,
-                  children: [
-                    {
-                      path: "my-resume",
-                      element: <MyResume />,
-                    },
-                  ],
+                  path: "my-resume",
+                  element: <MyResume />,
                 },
+              ],
+            },
+            {
+              path: "react-tips",
+              element: <ReactTips />,
+            },
+            {
+              path: "react-interview-questions",
+              children: [
                 {
-                  path: "react-tips",
-                  element: <ReactTips />,
+                  path: "flash-card-game",
+                  element: <FlashCardGame />,
                 },
+              ],
+            },
+            {
+              path: "about-me",
+              children: [
                 {
-                  path: "react-interview-questions",
-                  children: [
-                    {
-                      path: "flash-card-game",
-                      element: <FlashCardGame />,
-                    },
-                  ],
-                },
-                {
-                  path: "about-me",
-                  children: [
-                    {
-                      path: "contact-details",
-                      element: <ContactDetails />,
-                    },
-                  ],
+                  path: "contact-details",
+                  element: <ContactDetails />,
                 },
               ],
             },
