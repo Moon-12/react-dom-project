@@ -3,6 +3,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fireStoreDB } from "../../firebase/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
+import { act } from "react";
 
 // Async thunk for fetching the header
 export const fetchHeader = createAsyncThunk(
@@ -25,6 +26,7 @@ const headerSlice = createSlice({
     currentHeaderRoute: "",
     status: "idle",
     error: null,
+    currentHeader: "",
   },
   reducers: {
     setcurrentHeaderRoute: (state, action) => {
@@ -34,6 +36,13 @@ const headerSlice = createSlice({
     clearHeaders: (state) => {
       state.headers = [];
       state.currentHeaderRoute = "";
+    },
+    clearCurrentHeader: (state) => {
+      state.currentHeader = "";
+    },
+    setcurrentHeader: (state, action) => {
+      const { currentHeader } = action.payload;
+      state.currentHeader = currentHeader;
     },
   },
   extraReducers: (builder) => {
@@ -53,5 +62,10 @@ const headerSlice = createSlice({
   },
 });
 
-export const { clearHeaders, setcurrentHeaderRoute } = headerSlice.actions;
+export const {
+  clearHeaders,
+  setcurrentHeaderRoute,
+  setcurrentHeader,
+  clearCurrentHeader,
+} = headerSlice.actions;
 export default headerSlice.reducer;

@@ -18,18 +18,29 @@ import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import "./SideMenu.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import { clearCurrentHeader } from "../../redux/slice/headerSlice";
 
 export default function SideMenu() {
+  const [openDrawer, setOpenDrawer] = useState(false);
   const menu = useSelector((state) => state.menu.menu);
   const dispatch = useDispatch();
 
-  const toggleDrawer = () => {
-    dispatch(clearMenu());
+  const handleDrawer = () => {
+    setOpenDrawer(false);
+    dispatch(clearCurrentHeader());
   };
 
   const currentHeaderRoute = useSelector(
     (state) => state.header.currentHeaderRoute
   );
+  const currentHeader = useSelector((state) => state.header.currentHeader);
+
+  useEffect(() => {
+    if (currentHeader && menu && menu.length > 0) setOpenDrawer(true);
+  }, [currentHeader, menu]);
+
   const MenuItem = ({ item, parentMenu }) => {
     return (
       <div>
@@ -56,7 +67,7 @@ export default function SideMenu() {
           </>
         ) : (
           <Link to={`${parentMenu}`} className="menu-links">
-            <ListItem key={item.id} disablePadding onClick={toggleDrawer}>
+            <ListItem key={item.id} disablePadding onClick={handleDrawer}>
               <ListItemButton>
                 <ListItemIcon>
                   {item.menu_name === "My Resume" ? (
@@ -93,7 +104,7 @@ export default function SideMenu() {
 
   return (
     <div>
-      <Drawer open={menu && menu.length > 0} onClose={toggleDrawer}>
+      <Drawer open={openDrawer} onClose={handleDrawer}>
         {DrawerList}
       </Drawer>
     </div>

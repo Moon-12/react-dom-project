@@ -1,38 +1,61 @@
+import { Outlet } from "react-router-dom";
+
+import "./Home.css";
+import HeaderBar from "../HeaderBar/HeaderBar";
+import SideMenu from "../SideMenu/SideMenu";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { auth } from "../../firebase/firebaseConfig";
-import { signInAnonymously } from "firebase/auth";
+import { auth, fireStoreDB } from "../../firebase/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { setLogInResponse } from "../../redux/slice/authSlice";
+import Footer from "../Footer/Footer";
+import { getDoc, doc } from "firebase/firestore";
+
 const Home = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.count("home loggedin state change");
-    if (isLoggedIn) {
-      navigate("/landing-page");
+  const getUserRole = async (user) => {
+    const docRef = doc(fireStoreDB, "user_profile", `${auth.currentUser.uid}`);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return "admin";
+    } else if (user.isAnonymous) {
+      return "anonymous";
+    } else {
+      return "super_guest";
     }
-  }, [isLoggedIn, navigate]);
-
-  const handleGuestLoginFn = () => {
-    signInAnonymously(auth)
-      .then(() => {
-        // Signed in..
-      })
-      .catch((error) => {
-        // ...error
-      });
   };
-  return (
-    <>
-      <div>Home page</div>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
+  useEffect(() => {
+    //This is a firebase method,which gets called automatically when auth state changes
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const role = await getUserRole(user);
+        dispatch(setLogInResponse({ uid: user.uid, role }));
+      } else {
+        dispatch(setLogInResponse(""));
+      }
+    });
+  }, [dispatch]);
 
-      <button onClick={handleGuestLoginFn}>Login as guest</button>
-    </>
+  return (
+    <div className="container">
+      <header className="header">
+        <HeaderBar />
+      </header>
+      <div className="content-body">
+        <nav className="sidenav">
+          <SideMenu />
+        </nav>
+        <main className="content">
+          back button
+          <Outlet />
+        </main>
+        <aside className="ads"></aside>
+      </div>
+      <footer className="footer">
+        <Footer />
+      </footer>
+    </div>
   );
 };
-
 export default Home;

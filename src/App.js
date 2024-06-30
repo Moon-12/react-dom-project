@@ -1,31 +1,30 @@
 import "./App.css";
 import ErrorPage from "./components/ErrorPage";
 import LoginPage from "./components/LoginPage/LoginPage";
-import RootComp from "./components/RootComp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import User from "./components/User/User";
-import Home from "./components/Home/Home";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./components/routes/PrivateRoutes";
-import Projects from "./components/menuItems/Projects/Projects";
-import Counter from "./components/menuItems/Projects/Easy/Counter/Counter";
-import Resume from "./components/menuItems/Resume/Resume";
-import MyResume from "./components/menuItems/Resume/MyResume/MyResume";
-import Easy from "./components/menuItems/Projects/Easy/Easy";
-import RandomJokes from "./components/menuItems/Projects/Easy/RandomJokes/RandomJokes";
-import MorseTranslator from "./components/menuItems/Projects/Easy/MorseTranslator/MorseTranslator";
-import JwtDecoder from "./components/menuItems/Projects/Easy/JwtDecoder/JwtDecoder";
+import Projects from "./components/Home/Projects/Projects";
+import Counter from "./components/Home/Projects/Easy/Counter/Counter";
+import Resume from "./components/Home/Resume/Resume";
+import MyResume from "./components/Home/Resume/MyResume/MyResume";
+import Easy from "./components/Home/Projects/Easy/Easy";
+import RandomJokes from "./components/Home/Projects/Easy/RandomJokes/RandomJokes";
+import MorseTranslator from "./components/Home/Projects/Easy/MorseTranslator/MorseTranslator";
+import JwtDecoder from "./components/Home/Projects/Easy/JwtDecoder/JwtDecoder";
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
-import ReactTips from "./components/menuItems/ReactTips/ReactTips";
-import ContactDetails from "./components/menuItems/ContactDetails/ContactDetails";
-import FlashCardGame from "./components/menuItems/FlashCardGame/FlashCardGame";
-
+import ReactTips from "./components/Home/ReactTips/ReactTips";
+import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
+import FlashCardGame from "./components/Home/FlashCardGame/FlashCardGame";
+import LandingPage from "./components/LandingPage/LandingPage";
+import Home from "./components/Home/Home";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootComp />,
+      element: <Home />,
       errorElement: <ErrorPage />,
       children: [
         {
@@ -99,7 +98,7 @@ function App() {
             },
           ],
         },
-        { path: "/", element: <Home /> },
+        { path: "/", element: <LandingPage /> },
         {
           path: "/login",
           element:

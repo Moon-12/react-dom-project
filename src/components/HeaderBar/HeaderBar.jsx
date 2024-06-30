@@ -18,10 +18,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   clearHeaders,
   fetchHeader,
+  setcurrentHeader,
   setcurrentHeaderRoute,
 } from "../../redux/slice/headerSlice";
 import { useEffect } from "react";
 import { setMenu } from "../../redux/slice/menuSlice";
+import { useRef } from "react";
+import { useState } from "react";
 
 const pages = [
   "Resume",
@@ -39,15 +42,24 @@ const HeaderBar1 = () => {
   const headers = useSelector((state) => state.header.headers);
   const dispatch = useDispatch();
 
+  const prevHeaderRef = useRef();
+
   const handleHeaderClick = (header) => {
     const { id, route } = header;
-    setAnchorElNav(null);
-    dispatch(setcurrentHeaderRoute({ currentHeaderRoute: route }));
-    //filter menu based on header clicked
-    const menu = headers
-      .filter((header) => header.id === id)
-      .map((header) => header.subMenus);
-    dispatch(setMenu({ menu }));
+
+    if (prevHeaderRef.current && prevHeaderRef.current !== header) {
+      setAnchorElNav(null);
+      dispatch(setcurrentHeaderRoute({ currentHeaderRoute: route }));
+      //filter menu based on header clicked
+      const menu = headers
+        .filter((header) => header.id === id)
+        .map((header) => header.subMenus);
+      dispatch(setMenu({ menu }));
+    }
+
+    // Update the previous header ref
+    prevHeaderRef.current = header;
+    dispatch(setcurrentHeader({ currentHeader: header }));
   };
 
   useEffect(() => {
