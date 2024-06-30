@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const User = () => {
+const SecureComp = () => {
   return (
     <>
       <Outlet />
@@ -8,4 +8,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default SecureComp;

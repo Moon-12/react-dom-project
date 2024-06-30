@@ -21,7 +21,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/landing-page");
+      navigate("/s");
     }
   }, [isLoggedIn, navigate]);
 

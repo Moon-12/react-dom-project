@@ -2,7 +2,7 @@ import "./App.css";
 import ErrorPage from "./components/ErrorPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import User from "./components/User/User";
+
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./components/routes/PrivateRoutes";
@@ -20,6 +20,7 @@ import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
 import FlashCardGame from "./components/Home/FlashCardGame/FlashCardGame";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
+import SecureComp from "./components/SecureComp/SecureComp";
 function App() {
   const router = createBrowserRouter([
     {
@@ -31,8 +32,8 @@ function App() {
           element: <PrivateRoute />,
           children: [
             {
-              path: "landing-page",
-              element: <User />,
+              path: "s",
+              element: <SecureComp />,
               children: [
                 {
                   path: "mini-dom-projects",

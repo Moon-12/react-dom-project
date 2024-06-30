@@ -159,7 +159,7 @@ const HeaderBar1 = () => {
               <Link
                 className="header-links"
                 key={header.id}
-                to={`/landing-page${header.route}`}
+                to={`/s${header.route}`}
               >
                 <Button
                   onClick={() => handleHeaderClick(header)}

@@ -93,7 +93,7 @@ export default function SideMenu() {
             <MenuItem
               key={item.id}
               item={item}
-              parentMenu={"/landing-page" + currentHeaderRoute + item.route}
+              parentMenu={"/s" + currentHeaderRoute + item.route}
             />
           ))}
       </List>

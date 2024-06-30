@@ -11,7 +11,7 @@ const LandingPage = () => {
   useEffect(() => {
     console.count("home loggedin state change");
     if (isLoggedIn) {
-      navigate("/landing-page");
+      navigate("/s");
     }
   }, [isLoggedIn, navigate]);
 
