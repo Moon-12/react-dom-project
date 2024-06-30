@@ -3,7 +3,9 @@ import { auth } from "../../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import "./EmulatorLogin.css";
 const EmulatorLogin = () => {
   const [email, setEmail] = useState("test56@gmail.com");
   const [password, setPassword] = useState("helloworld");
@@ -23,19 +25,34 @@ const EmulatorLogin = () => {
     });
   };
   return (
-    <>
-      <input
-        type="text"
-        value={email}
+    <div className="emul-login-wrapper">
+      <TextField
+        id="outlined-basic"
+        label="Email"
+        variant="outlined"
+        defaultValue={email}
         onChange={(e) => setEmail(e.target.value)}
+        required
       />
-      <input
+
+      <TextField
+        id="outlined-password-input"
+        label="Password"
         type="password"
-        value={password}
+        autoComplete="current-password"
+        defaultValue={password}
         onChange={(e) => setPassword(e.target.value)}
+        required
       />
-      <button onClick={handleSubmit}>Login</button>
-    </>
+      <div className="btn-wrapper">
+        <Button variant="contained" onClick={() => navigate("/")}>
+          Back
+        </Button>
+        <Button variant="contained" onClick={handleSubmit}>
+          Login
+        </Button>
+      </div>
+    </div>
   );
 };
 export default EmulatorLogin;
