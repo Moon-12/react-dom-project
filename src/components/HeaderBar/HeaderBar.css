@@ -7,10 +7,16 @@
 .header-links {
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .header-items {
   flex: auto;
   display: flex;
   column-gap: 1em;
+}
+
+.logo {
+  width: 2.5em;
 }

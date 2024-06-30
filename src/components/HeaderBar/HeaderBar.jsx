@@ -24,8 +24,11 @@ import {
 import { useEffect } from "react";
 import { setMenu } from "../../redux/slice/menuSlice";
 import { useRef } from "react";
-import { useState } from "react";
+import logo from "../../assets/logo.png";
+import { environment } from "../../environments/environment";
+import ListItemButton from "@mui/material/ListItemButton";
 
+import { useState } from "react";
 const pages = [
   "Resume",
   "React tips",
@@ -34,11 +37,12 @@ const pages = [
   "About Me",
 ];
 
-const HeaderBar1 = () => {
+const HeaderBar = () => {
+  const { appName } = environment;
   const role = useSelector((state) => state.auth.role);
   const loginResponse = useSelector((state) => state.auth.loginResponse);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  const [activeHeader, setActiveHeader] = useState(appName);
   const headers = useSelector((state) => state.header.headers);
   const dispatch = useDispatch();
 
@@ -46,7 +50,7 @@ const HeaderBar1 = () => {
 
   const handleHeaderClick = (header) => {
     const { id, route } = header;
-
+    //dipatch action only when current header is not same as prev header
     if (prevHeaderRef.current && prevHeaderRef.current !== header) {
       setAnchorElNav(null);
       dispatch(setcurrentHeaderRoute({ currentHeaderRoute: route }));
@@ -56,7 +60,7 @@ const HeaderBar1 = () => {
         .map((header) => header.subMenus);
       dispatch(setMenu({ menu }));
     }
-
+    setActiveHeader(header);
     // Update the previous header ref
     prevHeaderRef.current = header;
     dispatch(setcurrentHeader({ currentHeader: header }));
@@ -86,8 +90,6 @@ const HeaderBar1 = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -148,12 +150,21 @@ const HeaderBar1 = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link to="/" className="header-links">
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+              <img src={logo} alt="logo" className="logo" />
+              <ListItemButton
+                selected={activeHeader === appName}
+                onClick={() => setActiveHeader(appName)}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  "&.Mui-selected": {
+                    backgroundColor: "#246db5",
+                  },
+                }}
               >
-                Home
-              </Button>
+                {appName}
+              </ListItemButton>
             </Link>
             {headers.map((header) => (
               <Link
@@ -161,23 +172,31 @@ const HeaderBar1 = () => {
                 key={header.id}
                 to={`${header.route}`}
               >
-                <Button
+                <ListItemButton
+                  selected={activeHeader === header}
                   onClick={() => handleHeaderClick(header)}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    "&.Mui-selected": {
+                      backgroundColor: "#246db5",
+                    },
+                  }}
                 >
                   {header.header_name}
-                </Button>
+                </ListItemButton>
               </Link>
             ))}
           </Box>
           {loginResponse ? (
             <Link to="/login" className="header-links" onClick={handleLogoutFn}>
-              <Button
+              <ListItemButton
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Logout
-              </Button>
+              </ListItemButton>
             </Link>
           ) : null}
         </Toolbar>
@@ -185,4 +204,4 @@ const HeaderBar1 = () => {
     </AppBar>
   );
 };
-export default HeaderBar1;
+export default HeaderBar;

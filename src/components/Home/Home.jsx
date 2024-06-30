@@ -43,13 +43,13 @@ const Home = () => {
         <HeaderBar />
       </header>
       <div className="content-body">
-        <nav className="sidenav">
+        <nav>
           <SideMenu />
         </nav>
         <main className="content">
           <Outlet />
         </main>
-        <aside className="ads"></aside>
+        {/* <aside className="ads"></aside> */}
       </div>
       <footer className="footer">
         <Footer />
