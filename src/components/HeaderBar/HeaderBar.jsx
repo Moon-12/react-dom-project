@@ -46,12 +46,15 @@ const HeaderBar = () => {
   const headers = useSelector((state) => state.header.headers);
   const dispatch = useDispatch();
 
-  const prevHeaderRef = useRef();
+  const prevHeaderRef = useRef(null);
 
   const handleHeaderClick = (header) => {
     const { id, route } = header;
     //dipatch action only when current header is not same as prev header
-    if (prevHeaderRef.current && prevHeaderRef.current !== header) {
+    if (
+      (prevHeaderRef.current && prevHeaderRef.current !== header) ||
+      prevHeaderRef.current === null
+    ) {
       setAnchorElNav(null);
       dispatch(setcurrentHeaderRoute({ currentHeaderRoute: route }));
       //filter menu based on header clicked

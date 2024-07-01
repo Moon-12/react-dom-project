@@ -1,3 +1,3 @@
 export const RemoveIcon = () => {
-  return <span class="material-symbols-outlined">remove</span>;
+  return <span className="material-symbols-outlined">remove</span>;
 };
