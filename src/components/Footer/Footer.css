@@ -3,3 +3,7 @@
   justify-content: flex-end;
   color: white;
 }
+
+.mail-to {
+  cursor: pointer;
+}

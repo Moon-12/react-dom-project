@@ -8,7 +8,12 @@ const Footer = () => {
       {" "}
       {appName}&nbsp;[ver {version}]&nbsp;is developed by&nbsp;
       {author}
-      &nbsp;&#123;&nbsp;✉️&nbsp;&#125;
+      <span
+        className="mail-to"
+        onClick={() => (window.location = "mailto:ashwijanayak@gmail.com")}
+      >
+        &nbsp;&#123;&nbsp;✉️&nbsp;&#125;
+      </span>
     </div>
   );
 };
