@@ -5,12 +5,13 @@ import { getDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
 
 const MillionCheckboxes = () => {
   const [checkboxMetadata, setCheckboxMetadata] = useState({});
-  const checkboxMetaDataDocRef = doc(
-    fireStoreDB,
-    "common",
-    "checkbox-metadata"
-  );
+
   useEffect(() => {
+    const checkboxMetaDataDocRef = doc(
+      fireStoreDB,
+      "common",
+      "checkbox-metadata"
+    );
     onSnapshot(checkboxMetaDataDocRef, (snapShot) => {
       if (snapShot.exists()) {
         setCheckboxMetadata(snapShot.data());
@@ -19,6 +20,11 @@ const MillionCheckboxes = () => {
   }, []);
 
   const handleChangeCheckbox = async (e) => {
+    const checkboxMetaDataDocRef = doc(
+      fireStoreDB,
+      "common",
+      "checkbox-metadata"
+    );
     const targetCheckboxID = e.target.id;
     getDoc(checkboxMetaDataDocRef)
       .then((docSnap) => {

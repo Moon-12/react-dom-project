@@ -151,7 +151,7 @@ const HeaderBar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to="/" className="header-links">
+            <Link to="/s" className="header-links">
               <img src={logo} alt="logo" className="logo" />
               <ListItemButton
                 selected={activeHeader === appName}
