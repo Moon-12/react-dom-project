@@ -21,7 +21,7 @@ const MyResume = () => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Download Resume?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Download Resume"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Would you like to download the resume?
