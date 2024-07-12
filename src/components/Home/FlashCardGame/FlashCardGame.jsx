@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import FlashCard from "./FlashCard/FlashCard";
 import { useState } from "react";
+import "./FlashCardGame.css";
 
 export default function SelectTopic(props) {
   const [selectedTopic, setSelectedTopic] = useState("math");
@@ -25,7 +26,7 @@ export default function SelectTopic(props) {
   const topics = ["math", "science", "history"];
 
   return (
-    <Box sx={{ width: "10em", margin: "1em" }}>
+    <Box sx={{ margin: "1em" }} className="card-container">
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Topic</InputLabel>
         <Select

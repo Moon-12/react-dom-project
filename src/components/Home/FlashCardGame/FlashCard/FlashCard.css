@@ -19,3 +19,15 @@
 .card .back {
   transform: rotateY(180deg);
 } */
+.nav-btn-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.nav-btn {
+  width: 10em;
+}
+.card-detail {
+  height: 25em;
+  width: 35em;
+}
