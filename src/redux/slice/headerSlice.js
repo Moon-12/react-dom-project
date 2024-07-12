@@ -3,7 +3,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fireStoreDB } from "../../firebase/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
-import { act } from "react";
 
 // Async thunk for fetching the header
 export const fetchHeader = createAsyncThunk(
