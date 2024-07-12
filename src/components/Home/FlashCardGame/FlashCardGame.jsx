@@ -34,6 +34,7 @@ export default function SelectTopic(props) {
           id="demo-simple-select"
           value={selectedTopic}
           label="topic"
+          sx={{ fontSize: "large" }}
           onChange={handleTopicChange}
         >
           {topics.map((topic) => {

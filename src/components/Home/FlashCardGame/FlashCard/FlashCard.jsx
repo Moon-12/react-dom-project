@@ -64,7 +64,7 @@ export default function FlashCard({
   curIndex,
   handleNavigation,
 }) {
-  const [flip, setFlip] = useState(true);
+  const [flip, setFlip] = useState(false);
 
   useEffect(() => {
     setFlip(false);
@@ -73,35 +73,43 @@ export default function FlashCard({
   return (
     <>
       <Box sx={{ minWidth: 275 }}>
-        <Card
-          variant="outlined"
-          onClick={() => setFlip(!flip)}
-          className="card-detail"
-        >
-          {flip ? (
-            <CardContent>
-              <Typography component="div">
-                {flashcards[selectedTopic][curIndex].answer}
-              </Typography>
-            </CardContent>
-          ) : (
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {flashcards[selectedTopic][curIndex].title}
-              </Typography>
-              {flashcards[selectedTopic][curIndex].img ? (
-                <CardMedia
-                  sx={{ height: 140 }}
-                  image="/static/images/cards/contemplative-reptile.jpg"
-                  title="green iguana"
-                />
-              ) : null}
-              <Typography component="div">
-                {flashcards[selectedTopic][curIndex].question}
-              </Typography>
-            </CardContent>
-          )}
-        </Card>
+        <div className="flip-card" onClick={() => setFlip(!flip)}>
+          <div
+            className={`flip-card-inner ${
+              flip ? "flip-card-inner-rotate" : ""
+            }`}
+          >
+            <div class="flip-card-back">
+              <CardContent>
+                <Typography component="div">
+                  {flashcards[selectedTopic][curIndex].answer}
+                </Typography>
+              </CardContent>
+            </div>
+            <div class="flip-card-front">
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  sx={{ fontWeight: "bold" }}
+                  component="div"
+                >
+                  {flashcards[selectedTopic][curIndex].title}
+                </Typography>
+                {flashcards[selectedTopic][curIndex].img ? (
+                  <CardMedia
+                    sx={{ height: 140 }}
+                    image="/static/images/cards/contemplative-reptile.jpg"
+                    title="green iguana"
+                  />
+                ) : null}
+                <Typography component="div" variant="h6">
+                  {flashcards[selectedTopic][curIndex].question}
+                </Typography>
+              </CardContent>
+            </div>
+          </div>
+        </div>
       </Box>
       <div className="nav-btn-container">
         <Button

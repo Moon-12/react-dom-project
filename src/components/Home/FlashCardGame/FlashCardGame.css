@@ -4,8 +4,4 @@
   width: min-content;
   gap: 2em;
   justify-content: center;
-  margin: auto;
-  /* flex-direction: column;
-  gap: 2em;
-  justify-content: center; */
 }
