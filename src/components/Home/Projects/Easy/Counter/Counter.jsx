@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { AddIcon } from "../../../../../icons/AddIcon";
 import { RemoveIcon } from "../../../../../icons/RemoveIcon";
 import { ResetIcon } from "../../../../../icons/ResetIcon";
