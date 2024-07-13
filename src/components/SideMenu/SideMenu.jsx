@@ -50,29 +50,43 @@ export default function SideMenu() {
         <ListItemText primary={item.menu_name} />
       </ListItemButton>
     );
+    const accordionSummary = (
+      <AccordionSummary
+        expandIcon={<ArrowDropDownIcon />}
+        aria-controls="panel2-content"
+        id="panel2-header"
+      >
+        <Typography>{item.menu_name}</Typography>
+      </AccordionSummary>
+    );
+    const accordionDetails = (
+      <AccordionDetails>
+        {item.SubMenus.map((subItem) => (
+          <MenuItem
+            key={subItem.id}
+            item={subItem}
+            parentMenu={parentMenu + subItem.route}
+          />
+        ))}
+      </AccordionDetails>
+    );
+
     return (
       <div>
-        {item.SubMenus && item.SubMenus.length > 0 ? (
-          <>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ArrowDropDownIcon />}
-                aria-controls="panel2-content"
-                id="panel2-header"
-              >
-                <Typography>{item.menu_name}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {item.SubMenus.map((subItem) => (
-                  <MenuItem
-                    key={subItem.id}
-                    item={subItem}
-                    parentMenu={parentMenu + subItem.route}
-                  />
-                ))}
-              </AccordionDetails>
-            </Accordion>
-          </>
+        {item.SubMenus && item.SubMenus.length ? (
+          item.SubMenus.length > 10 ? (
+            <>
+              <Accordion>
+                {accordionSummary}
+                {accordionDetails}
+              </Accordion>
+            </>
+          ) : (
+            <>
+              {accordionSummary}
+              {accordionDetails}
+            </>
+          )
         ) : (
           <Link
             to={`${item.enable ? parentMenu : currentHeaderRoute}`}
