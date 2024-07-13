@@ -6,7 +6,8 @@ import useProjectEnabled from "../../useProjectEnabled";
 const JwtDecoder = () => {
   const isJwtDecoderEnabled = useProjectEnabled(
     "Mini Dom Projects",
-    "Jwt Decoder"
+    "Jwt Decoder",
+    "Medium"
   );
   const [jwtText, setJwtText] = useState("");
   const [payload, setPayload] = useState("");

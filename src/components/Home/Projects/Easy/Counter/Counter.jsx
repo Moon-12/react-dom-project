@@ -7,7 +7,11 @@ import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
 import useProjectEnabled from "../../useProjectEnabled";
 
 const Counter = () => {
-  const isCounterEnabled = useProjectEnabled("Mini Dom Projects", "Counter");
+  const isCounterEnabled = useProjectEnabled(
+    "Mini Dom Projects",
+    "Counter",
+    "Easy"
+  );
 
   const [count, setCount] = useState(0);
   const handleClick = (name) => {

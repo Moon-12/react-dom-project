@@ -7,7 +7,8 @@ import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
 const RandomJokes = () => {
   const isRandomJokesEnabled = useProjectEnabled(
     "Mini Dom Projects",
-    "Random Jokes"
+    "Random Jokes",
+    "Easy"
   );
   const [joke, setJoke] = useState("");
 

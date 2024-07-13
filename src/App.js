@@ -12,7 +12,7 @@ import MyResume from "./components/Home/Resume/MyResume/MyResume";
 import Easy from "./components/Home/Projects/Easy/Easy";
 import RandomJokes from "./components/Home/Projects/Easy/RandomJokes/RandomJokes";
 import MorseTranslator from "./components/Home/Projects/Easy/MorseTranslator/MorseTranslator";
-import JwtDecoder from "./components/Home/Projects/Easy/JwtDecoder/JwtDecoder";
+import JwtDecoder from "./components/Home/Projects/Medium/JwtDecoder/JwtDecoder";
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
 import ReactTips from "./components/Home/ReactTips/ReactTips";
 import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
@@ -20,7 +20,8 @@ import FlashCardGame from "./components/Home/FlashCardGame/FlashCardGame";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import SecureComp from "./components/SecureComp/SecureComp";
-import ThousandCheckboxes from "./components/Home/Projects/Easy/ThousandCheckboxes/ThousandCheckboxes";
+import ThousandCheckboxes from "./components/Home/Projects/Medium/ThousandCheckboxes/ThousandCheckboxes";
+import Medium from "./components/Home/Projects/Medium/Medium";
 function App() {
   const router = createBrowserRouter([
     {
@@ -55,6 +56,12 @@ function App() {
                       path: "morse-translator",
                       element: <MorseTranslator />,
                     },
+                  ],
+                },
+                {
+                  path: "medium",
+                  element: <Medium />,
+                  children: [
                     {
                       path: "jwt-decoder",
                       element: <JwtDecoder />,

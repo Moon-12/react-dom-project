@@ -7,7 +7,8 @@ import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
 const MorseTranslator = () => {
   const isMorseTranslatorEnabled = useProjectEnabled(
     "Mini Dom Projects",
-    "Morse Translator"
+    "Morse Translator",
+    "Easy"
   );
   const [morseCode, setMorseCode] = useState("");
   const [text, setText] = useState("");

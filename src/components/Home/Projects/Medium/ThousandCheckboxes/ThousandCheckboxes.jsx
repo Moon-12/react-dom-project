@@ -8,7 +8,8 @@ import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
 const ThousandCheckboxes = () => {
   const isThousandCheckboxesEnabled = useProjectEnabled(
     "Mini Dom Projects",
-    "Million Checkboxes"
+    "Thousand Checkboxes",
+    "Medium"
   );
   const [checkboxMetadata, setCheckboxMetadata] = useState({});
 
