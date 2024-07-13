@@ -20,6 +20,7 @@ import "./SideMenu.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { clearCurrentHeader } from "../../redux/slice/headerSlice";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function SideMenu() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -41,6 +42,14 @@ export default function SideMenu() {
   }, [currentHeader, menu]);
 
   const MenuItem = ({ item, parentMenu }) => {
+    const listItemButton = (
+      <ListItemButton disabled={!item.enable}>
+        <ListItemIcon>
+          {item.menu_name === "My Resume" ? <InboxIcon /> : <DoubleArrowIcon />}
+        </ListItemIcon>
+        <ListItemText primary={item.menu_name} />
+      </ListItemButton>
+    );
     return (
       <div>
         {item.SubMenus && item.SubMenus.length > 0 ? (
@@ -65,19 +74,22 @@ export default function SideMenu() {
             </Accordion>
           </>
         ) : (
-          <Link to={`${parentMenu}`} className="menu-links">
-            <ListItem key={item.id} disablePadding onClick={handleDrawer}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {item.menu_name === "My Resume" ? (
-                    <InboxIcon />
-                  ) : (
-                    <DoubleArrowIcon />
-                  )}
-                </ListItemIcon>
-
-                <ListItemText primary={item.menu_name} />
-              </ListItemButton>
+          <Link
+            to={`${item.enable ? parentMenu : currentHeaderRoute}`}
+            className="menu-links"
+          >
+            <ListItem
+              key={item.id}
+              disablePadding
+              onClick={item.enable ? handleDrawer : null}
+            >
+              {item.enable ? (
+                listItemButton
+              ) : (
+                <Tooltip title="Temporarily disabled" arrow>
+                  <span>{listItemButton}</span>
+                </Tooltip>
+              )}
             </ListItem>
           </Link>
         )}

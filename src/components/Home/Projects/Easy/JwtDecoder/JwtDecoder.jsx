@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import "./JwtDecoder.css";
+import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
+import useProjectEnabled from "../../useProjectEnabled";
 
 const JwtDecoder = () => {
+  const isJwtDecoderEnabled = useProjectEnabled(
+    "Mini Dom Projects",
+    "Jwt Decoder"
+  );
   const [jwtText, setJwtText] = useState("");
   const [payload, setPayload] = useState("");
   const [header, setHeader] = useState("");
@@ -46,7 +52,7 @@ const JwtDecoder = () => {
     setPayload(e.target.value);
   };
 
-  return (
+  return isJwtDecoderEnabled ? (
     <div className="jwt-container">
       <div>
         <div>Encoded</div>
@@ -82,6 +88,8 @@ const JwtDecoder = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <ProjectDisabled projectName="Jwt Decoder" />
   );
 };
 

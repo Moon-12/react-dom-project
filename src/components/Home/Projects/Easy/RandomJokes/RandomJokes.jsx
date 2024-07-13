@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./RandomJokes.css";
+import useProjectEnabled from "../../useProjectEnabled";
+import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
+
 const RandomJokes = () => {
+  const isRandomJokesEnabled = useProjectEnabled(
+    "Mini Dom Projects",
+    "Random Jokes"
+  );
   const [joke, setJoke] = useState("");
 
   const getJoke = () => {
@@ -27,7 +34,7 @@ const RandomJokes = () => {
     const intervalId = setInterval(getJoke, 5000);
     return () => clearInterval(intervalId);
   }, []);
-  return (
+  return isRandomJokesEnabled ? (
     <div className="joke-container">
       <h2 className="joke-header">Don't Laugh Challenge</h2>
       <div>{joke}</div>
@@ -35,6 +42,8 @@ const RandomJokes = () => {
         Get Another Joke
       </button>
     </div>
+  ) : (
+    <ProjectDisabled projectName="Random Jokes" />
   );
 };
 

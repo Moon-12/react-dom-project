@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { morseCodeArray } from "../../../../../constants/morseCode";
 import "./MorseTranslator.css";
+import useProjectEnabled from "../../useProjectEnabled";
+import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
+
 const MorseTranslator = () => {
+  const isMorseTranslatorEnabled = useProjectEnabled(
+    "Mini Dom Projects",
+    "Morse Translator"
+  );
   const [morseCode, setMorseCode] = useState("");
   const [text, setText] = useState("");
 
@@ -44,7 +51,7 @@ const MorseTranslator = () => {
     }
   };
 
-  return (
+  return isMorseTranslatorEnabled ? (
     <div className="text-trans">
       <div>
         <div>Text</div>
@@ -63,6 +70,8 @@ const MorseTranslator = () => {
         />
       </div>
     </div>
+  ) : (
+    <ProjectDisabled projectName="Morse Translator" />
   );
 };
 export default MorseTranslator;

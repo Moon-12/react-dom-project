@@ -1,9 +1,15 @@
+import { useSelector } from "react-redux";
 import { AddIcon } from "../../../../../icons/AddIcon";
 import { RemoveIcon } from "../../../../../icons/RemoveIcon";
 import { ResetIcon } from "../../../../../icons/ResetIcon";
 import "./Counter.css";
 import { useState } from "react";
+import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
+import useProjectEnabled from "../../useProjectEnabled";
+
 const Counter = () => {
+  const isCounterEnabled = useProjectEnabled("Mini Dom Projects", "Counter");
+
   const [count, setCount] = useState(0);
   const handleClick = (name) => {
     switch (name) {
@@ -19,7 +25,7 @@ const Counter = () => {
       default:
     }
   };
-  return (
+  return isCounterEnabled ? (
     <div className="counter-container">
       <h1>Counter</h1>
       <h2>{count}</h2>
@@ -35,6 +41,8 @@ const Counter = () => {
         </button>
       </div>
     </div>
+  ) : (
+    <ProjectDisabled projectName={"Counter"} />
   );
 };
 

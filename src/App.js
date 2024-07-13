@@ -20,7 +20,7 @@ import FlashCardGame from "./components/Home/FlashCardGame/FlashCardGame";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import SecureComp from "./components/SecureComp/SecureComp";
-import MillionCheckboxes from "./components/Home/Projects/Easy/MillionCheckboxes/MillionCheckboxes";
+import ThousandCheckboxes from "./components/Home/Projects/Easy/ThousandCheckboxes/ThousandCheckboxes";
 function App() {
   const router = createBrowserRouter([
     {
@@ -60,8 +60,8 @@ function App() {
                       element: <JwtDecoder />,
                     },
                     {
-                      path: "million-checkboxes",
-                      element: <MillionCheckboxes />,
+                      path: "thousand-checkboxes",
+                      element: <ThousandCheckboxes />,
                     },
                   ],
                 },

@@ -2,8 +2,14 @@ import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
 import { fireStoreDB } from "../../../../../firebase/firebaseConfig";
 import { getDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import useProjectEnabled from "../../useProjectEnabled";
+import ProjectDisabled from "../../ProjectDisabled/ProjectDisabled";
 
-const MillionCheckboxes = () => {
+const ThousandCheckboxes = () => {
+  const isThousandCheckboxesEnabled = useProjectEnabled(
+    "Mini Dom Projects",
+    "Million Checkboxes"
+  );
   const [checkboxMetadata, setCheckboxMetadata] = useState({});
 
   useEffect(() => {
@@ -40,7 +46,7 @@ const MillionCheckboxes = () => {
       });
   };
 
-  return (
+  return isThousandCheckboxesEnabled ? (
     <>
       {Object.keys(checkboxMetadata)
         .sort()
@@ -55,6 +61,8 @@ const MillionCheckboxes = () => {
           );
         })}
     </>
+  ) : (
+    <ProjectDisabled projectName="Thousand Checkboxes" />
   );
 };
-export default MillionCheckboxes;
+export default ThousandCheckboxes;
