@@ -7,56 +7,7 @@ import { useState } from "react";
 import "./FlashCard.css";
 import { useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
-
-const flashcards = {
-  math: [
-    {
-      title: "Math",
-      question: "What is 2+2?",
-      answer: "4",
-    },
-    {
-      title: "Math",
-      question: "What is the square root of 16?",
-      answer: "4",
-    },
-  ],
-  science: [
-    {
-      title: "Science",
-      question:
-        "What planet is known as the Red Planet? What planet is known as the Red Planet? What planet is known as the Red Planet?",
-      answer: "Mars",
-    },
-    {
-      title: "Science",
-      question: "What is the chemical symbol for water?",
-      answer: "H2O",
-    },
-  ],
-  history: [
-    {
-      title: "History",
-      question: "Who was the first president of the United States?",
-      answer: "George Washington",
-    },
-    {
-      title: "History",
-      question: "In which year did World War-I end?",
-      answer: "1945",
-    },
-    {
-      title: "History",
-      question: "test?",
-      answer: "1945",
-    },
-    {
-      title: "History",
-      question: "test1?",
-      answer: "1945",
-    },
-  ],
-};
+import { useSelector } from "react-redux";
 
 export default function FlashCard({
   selectedTopic,
@@ -64,11 +15,13 @@ export default function FlashCard({
   handleNavigation,
 }) {
   const [flip, setFlip] = useState(false);
-
+  const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
   useEffect(() => {
     setFlip(false);
   }, [selectedTopic, curIndex]);
 
+  const { answer, title, question, img } =
+    (flashcard[selectedTopic] && flashcard[selectedTopic][curIndex]) || {};
   return (
     <>
       <Box sx={{ minWidth: 275 }}>
@@ -78,14 +31,12 @@ export default function FlashCard({
               flip ? "flip-card-inner-rotate" : ""
             }`}
           >
-            <div class="flip-card-back">
+            <div className="flip-card-back">
               <CardContent>
-                <Typography component="div">
-                  {flashcards[selectedTopic][curIndex].answer}
-                </Typography>
+                <Typography component="div">{answer}</Typography>
               </CardContent>
             </div>
-            <div class="flip-card-front">
+            <div className="flip-card-front">
               <CardContent>
                 <Typography
                   gutterBottom
@@ -93,9 +44,9 @@ export default function FlashCard({
                   sx={{ fontWeight: "bold" }}
                   component="div"
                 >
-                  {flashcards[selectedTopic][curIndex].title}
+                  {title}
                 </Typography>
-                {flashcards[selectedTopic][curIndex].img ? (
+                {img ? (
                   <CardMedia
                     sx={{ height: 140 }}
                     image="/static/images/cards/contemplative-reptile.jpg"
@@ -103,7 +54,7 @@ export default function FlashCard({
                   />
                 ) : null}
                 <Typography component="div" variant="h6">
-                  {flashcards[selectedTopic][curIndex].question}
+                  {question}
                 </Typography>
               </CardContent>
             </div>
@@ -125,7 +76,7 @@ export default function FlashCard({
           variant="contained"
           size="medium"
           onClick={() => handleNavigation(1)}
-          disabled={curIndex === flashcards[selectedTopic].length - 1}
+          disabled={curIndex === flashcard[selectedTopic].length - 1}
         >
           next
         </Button>

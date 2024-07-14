@@ -7,11 +7,13 @@ import Select from "@mui/material/Select";
 import FlashCard from "./FlashCard/FlashCard";
 import { useState } from "react";
 import "./FlashCardGame.css";
+import { useSelector } from "react-redux";
 
 export default function SelectTopic(props) {
-  const [selectedTopic, setSelectedTopic] = useState("math");
+  const [selectedTopic, setSelectedTopic] = useState("React");
   const [curIndex, setCurIndex] = useState(0);
-
+  const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
+  const topics = Object.keys(flashcard);
   const handleNavigation = (direction) => {
     setCurIndex((prevIndex) => {
       const newIndex = prevIndex + direction;
@@ -23,7 +25,7 @@ export default function SelectTopic(props) {
     setCurIndex(0); // reset index
     setSelectedTopic(event.target.value);
   };
-  const topics = ["math", "science", "history"];
+  // const topics = ["math", "science", "history"];
 
   return (
     <Box sx={{ margin: "1em" }} className="card-container">

@@ -16,12 +16,13 @@ import JwtDecoder from "./components/Home/Projects/Medium/JwtDecoder/JwtDecoder"
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
 import ReactTips from "./components/Home/ReactTips/ReactTips";
 import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
-import FlashCardGame from "./components/Home/FlashCardGame/FlashCardGame";
+import FlashCardGame from "./components/Home/ReactInterviewQuestions/FlashCardGame/FlashCardGame";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import SecureComp from "./components/SecureComp/SecureComp";
 import ThousandCheckboxes from "./components/Home/Projects/Medium/ThousandCheckboxes/ThousandCheckboxes";
 import Medium from "./components/Home/Projects/Medium/Medium";
+import ReactInterviewQuestions from "./components/Home/ReactInterviewQuestions/ReactInterviewQuestions";
 function App() {
   const router = createBrowserRouter([
     {
@@ -90,6 +91,7 @@ function App() {
             },
             {
               path: "react-interview-questions",
+              element: <ReactInterviewQuestions />,
               children: [
                 {
                   path: "flash-card-game",
