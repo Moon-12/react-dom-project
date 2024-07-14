@@ -6,14 +6,15 @@ import SideMenu from "../SideMenu/SideMenu";
 import { useEffect } from "react";
 import { auth, fireStoreDB } from "../../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLogInResponse } from "../../redux/slice/authSlice";
 import Footer from "../Footer/Footer";
 import { getDoc, doc } from "firebase/firestore";
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
+  const userName = useSelector((state) => state.auth.userName);
   const getUserRole = async (user) => {
     const docRef = doc(fireStoreDB, "user_profile", `${auth.currentUser.uid}`);
     const docSnap = await getDoc(docRef);
@@ -30,7 +31,9 @@ const Home = () => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const role = await getUserRole(user);
-        dispatch(setLogInResponse({ uid: user.uid, role }));
+        dispatch(
+          setLogInResponse({ uid: user.uid, role, userName: user.displayName })
+        );
       } else {
         dispatch(setLogInResponse(""));
       }
@@ -47,6 +50,7 @@ const Home = () => {
           <SideMenu />
         </nav>
         <main className="content">
+          {isLoggedIn ? `Welcome! ${userName}` : ""}
           <Outlet />
         </main>
         {/* <aside className="ads"></aside> */}
