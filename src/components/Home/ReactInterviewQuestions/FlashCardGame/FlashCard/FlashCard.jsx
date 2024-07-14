@@ -76,7 +76,9 @@ export default function FlashCard({
           variant="contained"
           size="medium"
           onClick={() => handleNavigation(1)}
-          disabled={curIndex === flashcard[selectedTopic].length - 1}
+          disabled={
+            curIndex === flashcard && flashcard[selectedTopic].length - 1
+          }
         >
           next
         </Button>
