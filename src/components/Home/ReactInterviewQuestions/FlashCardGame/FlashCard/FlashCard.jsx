@@ -8,6 +8,9 @@ import "./FlashCard.css";
 import { useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
 import { useSelector } from "react-redux";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function FlashCard({
   selectedTopic,
@@ -46,6 +49,11 @@ export default function FlashCard({
                 >
                   {title}
                 </Typography>
+                <Tooltip title="Delete">
+                  <IconButton>
+                    <DeleteIcon />
+                  </IconButton>
+                </Tooltip>
                 {img ? (
                   <CardMedia
                     sx={{ height: 140 }}
@@ -76,9 +84,7 @@ export default function FlashCard({
           variant="contained"
           size="medium"
           onClick={() => handleNavigation(1)}
-          disabled={
-            curIndex === flashcard && flashcard[selectedTopic].length - 1
-          }
+          disabled={curIndex === flashcard[selectedTopic]?.length - 1}
         >
           next
         </Button>
