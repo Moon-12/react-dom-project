@@ -40,7 +40,11 @@ export default function SelectTopic(props) {
           onChange={handleTopicChange}
         >
           {topics.map((topic) => {
-            return <MenuItem value={topic}>{topic}</MenuItem>;
+            return (
+              <MenuItem key={topic} value={topic}>
+                {topic}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
