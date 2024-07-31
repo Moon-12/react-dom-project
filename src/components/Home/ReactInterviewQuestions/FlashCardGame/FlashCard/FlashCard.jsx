@@ -14,6 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import AddFlashcardModal from "../AddFlashcard/AddFlashcard";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 export default function FlashCard({
   selectedTopic,
@@ -22,15 +23,21 @@ export default function FlashCard({
 }) {
   const [openModal, setOpenModal] = useState(false);
   const [flip, setFlip] = useState(false);
-
+  const [url, setUrl] = useState("");
   const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
   useEffect(() => {
     setFlip(false);
   }, [selectedTopic, curIndex]);
 
-  const { answer, title, question, img } =
+  const { answer, title, question, imgPath } =
     (flashcard[selectedTopic] && flashcard[selectedTopic][curIndex]) || {};
 
+  if (imgPath) {
+    const storage = getStorage();
+    getDownloadURL(ref(storage, imgPath)).then((url) => {
+      setUrl(url);
+    });
+  }
   const handleModalFn = () => {
     setOpenModal(!openModal);
   };
@@ -81,16 +88,16 @@ export default function FlashCard({
                     </Tooltip>
                   </div>
                 </div>
-                {img ? (
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image="/static/images/cards/contemplative-reptile.jpg"
-                    title="green iguana"
-                  />
-                ) : null}
+
                 <Typography component="div" variant="h6">
                   {question}
                 </Typography>
+                {imgPath ? (
+                  <CardMedia
+                    sx={{ height: "18em", width: "25em" }}
+                    image={url}
+                  />
+                ) : null}
               </CardContent>
             </div>
           </div>

@@ -1,4 +1,4 @@
-export const requiredValidation = (message = "required") => {
+export const requiredValidation = (message = "Please fill this field") => {
   return {
     required: {
       value: true,

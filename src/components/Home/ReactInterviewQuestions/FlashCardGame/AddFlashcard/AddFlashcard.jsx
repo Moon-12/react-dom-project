@@ -15,8 +15,8 @@ import { fireStoreDB, storage } from "../../../../../firebase/firebaseConfig";
 import { ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import TextFieldInput from "../../../../FormElements/TextField/TextField";
-import { useSelector } from "react-redux";
-import { getDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
+import AutoCompleteInput from "../../../../FormElements/AutoCompleteInput/AutoCompleteInput";
 
 const style = {
   position: "absolute",
@@ -32,7 +32,6 @@ const style = {
 
 export default function AddFlashcardModal({ open, handleModalFn }) {
   const methods = useForm();
-  const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
 
   function capitalizeFirstLetter(string) {
     if (!string) return ""; // Handle empty or null strings
@@ -40,14 +39,14 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
   }
 
-  const handleImageUpload = (imgFile, data) => {
+  const handleImageUpload = (imgFile, newFlashcardData) => {
     if (imgFile) {
       const imageRef = ref(storage, `flashcard_uploads/${v4()}`);
       uploadBytes(imageRef, imgFile)
         .then((snapshot) => {
           const { fullPath } = snapshot.metadata || {};
-          data.imgPath = fullPath;
-          handleFlashCardUpload(data);
+          newFlashcardData.imgPath = fullPath;
+          handleFlashCardUpload(newFlashcardData);
         })
         .catch((err) => {
           console.log(err);
@@ -55,37 +54,43 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
     }
   };
 
-  const handleFlashCardUpload = (data) => {
-    const targetTopic = capitalizeFirstLetter(data.topic);
-    if (Object.keys(flashcard).includes(targetTopic)) {
-      const flashcardMetaDataDocRef = doc(
-        fireStoreDB,
-        "common",
-        "flashcard-metadata"
-      );
+  const handleFlashCardUpload = (newFlashcardData) => {
+    const targetTopic = capitalizeFirstLetter(newFlashcardData.topic);
+    const flashcardMetaDataDocRef = doc(
+      fireStoreDB,
+      "common",
+      "flashcard-metadata"
+    );
+    getDoc(flashcardMetaDataDocRef)
+      .then((docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
 
-      getDoc(flashcardMetaDataDocRef)
-        .then((docSnap) => {
-          if (docSnap.data()) {
-            const topic = docSnap.data()[targetTopic];
-            topic.push(data);
-            updateDoc(flashcardMetaDataDocRef, {
-              [targetTopic]: topic,
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error updating document: ", error);
-        });
-    }
+          // Check if the topic exists, otherwise initialize it as an empty array
+          const existingFlashcards = data[targetTopic] || [];
+
+          // Add the new flashcard to the array
+          const updatedFlashcards = [...existingFlashcards, newFlashcardData];
+
+          // Update the document with the new array
+          updateDoc(flashcardMetaDataDocRef, {
+            [targetTopic]: updatedFlashcards,
+          });
+          handleModalFn();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
-  const submit = methods.handleSubmit((data) => {
-    const imgFile = data.imgPath[0];
+  const submit = methods.handleSubmit((newFlashcardData) => {
+    const imgFile = newFlashcardData.imgPath[0];
     if (imgFile) {
-      handleImageUpload(imgFile, data);
-    } else handleFlashCardUpload(data);
+      handleImageUpload(imgFile, newFlashcardData);
+    } else handleFlashCardUpload(newFlashcardData);
   });
+
   return (
     <div>
       <Modal
@@ -100,9 +105,8 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
           </Typography>
           <FormProvider {...methods}>
             <form onSubmit={(event) => event.preventDefault()} noValidate>
-              <TextFieldInput
+              <AutoCompleteInput
                 fieldName="topic"
-                placeholder="Topic"
                 validators={requiredValidation()}
               />
               <TextFieldInput
