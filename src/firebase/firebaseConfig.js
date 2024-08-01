@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
-import { connectStorageEmulator, getStorage, ref } from "firebase/storage";
+import { connectStorageEmulator, getStorage } from "firebase/storage";
 
 const app = initializeApp(JSON.parse(process.env.REACT_APP_FIREBASE_TOKEN));
 export const auth = getAuth(app);

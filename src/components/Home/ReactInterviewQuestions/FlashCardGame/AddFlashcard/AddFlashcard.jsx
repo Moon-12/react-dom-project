@@ -38,7 +38,7 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
 
   useEffect(() => {
     reset();
-  }, [open]);
+  }, [open, reset]);
 
   function capitalizeFirstLetter(string) {
     if (!string) return ""; // Handle empty or null strings

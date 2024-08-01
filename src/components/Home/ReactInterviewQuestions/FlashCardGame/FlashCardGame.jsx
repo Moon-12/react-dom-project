@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import FlashCard from "./FlashCard/FlashCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./FlashCardGame.css";
 import { useSelector } from "react-redux";
 import AddIcon from "@mui/icons-material/Add";

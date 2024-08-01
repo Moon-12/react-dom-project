@@ -9,10 +9,8 @@ import { useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
 import { useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import AddIcon from "@mui/icons-material/Add";
 
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
