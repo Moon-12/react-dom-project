@@ -18,6 +18,7 @@ import TextFieldInput from "../../../../FormElements/TextField/TextField";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import AutoCompleteInput from "../../../../FormElements/AutoCompleteInput/AutoCompleteInput";
 import { useEffect } from "react";
+import "./AddFlashcard.css";
 
 const style = {
   position: "absolute",
@@ -143,10 +144,12 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
               />
               <ImageUpload fieldName="imgPath" />
             </form>
-            <Button variant="contained" onClick={submit}>
-              Add
-            </Button>
-            <Button variant="contained">Cancel</Button>
+            <div className="form-action-btns">
+              <Button variant="contained" onClick={submit}>
+                Add
+              </Button>
+              <Button variant="contained">Cancel</Button>
+            </div>
           </FormProvider>
         </Box>
       </Modal>

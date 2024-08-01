@@ -1,0 +1,8 @@
+.form-action-btns {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+}
+.form-action-btns button {
+  width: 8em;
+}
