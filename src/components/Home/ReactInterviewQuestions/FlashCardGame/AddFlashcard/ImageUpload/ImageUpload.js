@@ -1,6 +1,4 @@
-import { useState, useRef } from "react";
-import { ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../../../../../firebase/firebaseConfig";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 
 import "./ImageUpload.css";

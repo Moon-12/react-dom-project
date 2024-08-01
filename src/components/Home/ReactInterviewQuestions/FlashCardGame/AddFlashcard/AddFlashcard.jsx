@@ -77,7 +77,7 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
 
           // Add the new flashcard to the array
           const updatedFlashcards = [...existingFlashcards, newFlashcardData];
-
+          console.log(newFlashcardData, "new");
           // Update the document with the new array
           updateDoc(flashcardMetaDataDocRef, {
             [targetTopic]: updatedFlashcards,
@@ -92,9 +92,12 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
 
   const submit = methods.handleSubmit((newFlashcardData) => {
     const imgFile = newFlashcardData.imgPath[0];
-    if (imgFile) {
+    if (newFlashcardData.imgPath.length > 0) {
       handleImageUpload(imgFile, newFlashcardData);
-    } else handleFlashCardUpload(newFlashcardData);
+    } else {
+      newFlashcardData.imgPath = "";
+      handleFlashCardUpload(newFlashcardData);
+    }
   });
 
   return (
