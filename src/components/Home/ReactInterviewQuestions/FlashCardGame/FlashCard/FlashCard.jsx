@@ -13,7 +13,7 @@ import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
-import AddFlashcardModal from "../AddFlashcard/AddFlashcard";
+
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 export default function FlashCard({
@@ -21,7 +21,6 @@ export default function FlashCard({
   curIndex,
   handleNavigation,
 }) {
-  const [openModal, setOpenModal] = useState(false);
   const [flip, setFlip] = useState(false);
   const [url, setUrl] = useState("");
   const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
@@ -38,9 +37,7 @@ export default function FlashCard({
       setUrl(url);
     });
   }
-  const handleModalFn = () => {
-    setOpenModal(!openModal);
-  };
+
   return (
     <>
       <Box sx={{ minWidth: 275 }}>
@@ -67,16 +64,6 @@ export default function FlashCard({
                     {title}
                   </Typography>
                   <div className="card-action-btns ">
-                    <Tooltip describeChild title="Add new">
-                      <IconButton
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setOpenModal(true);
-                        }}
-                      >
-                        <AddIcon />
-                      </IconButton>
-                    </Tooltip>
                     <Tooltip title="Delete">
                       <IconButton
                         onClick={(e) => {
@@ -123,7 +110,6 @@ export default function FlashCard({
           next
         </Button>
       </div>
-      <AddFlashcardModal open={openModal} handleModalFn={handleModalFn} />
     </>
   );
 }

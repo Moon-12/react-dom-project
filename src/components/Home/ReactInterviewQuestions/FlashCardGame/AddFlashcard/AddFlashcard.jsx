@@ -17,6 +17,7 @@ import { v4 } from "uuid";
 import TextFieldInput from "../../../../FormElements/TextField/TextField";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import AutoCompleteInput from "../../../../FormElements/AutoCompleteInput/AutoCompleteInput";
+import { useEffect } from "react";
 
 const style = {
   position: "absolute",
@@ -32,6 +33,11 @@ const style = {
 
 export default function AddFlashcardModal({ open, handleModalFn }) {
   const methods = useForm();
+  const { reset } = methods;
+
+  useEffect(() => {
+    reset();
+  }, [open]);
 
   function capitalizeFirstLetter(string) {
     if (!string) return ""; // Handle empty or null strings
