@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
+import ImagePopup from "./ImagePopup/ImagePopup";
 
 export default function FlashCard({
   selectedTopic,
@@ -21,10 +22,15 @@ export default function FlashCard({
 }) {
   const [flip, setFlip] = useState(false);
   const [url, setUrl] = useState("");
+  const [openImgPopup, setOpenImgPopup] = useState(false);
   const flashcard = useSelector((state) => state.flashcardReducer.flashcard);
   useEffect(() => {
     setFlip(false);
   }, [selectedTopic, curIndex]);
+
+  const handleImagePopupModal = () => {
+    setOpenImgPopup(!openImgPopup);
+  };
 
   const { answer, title, question, imgPath } =
     (flashcard[selectedTopic] && flashcard[selectedTopic][curIndex]) || {};
@@ -67,6 +73,7 @@ export default function FlashCard({
                         <IconButton
                           onClick={(e) => {
                             e.stopPropagation();
+                            handleImagePopupModal();
                           }}
                         >
                           <OpenInFullIcon />
@@ -121,6 +128,11 @@ export default function FlashCard({
           next
         </Button>
       </div>
+      <ImagePopup
+        open={openImgPopup}
+        handleModal={handleImagePopupModal}
+        imageURL={url}
+      />
     </>
   );
 }
