@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 
 export default function FlashCard({
   selectedTopic,
@@ -62,7 +62,20 @@ export default function FlashCard({
                     {title}
                   </Typography>
                   <div className="card-action-btns ">
-                    <Tooltip title="Delete">
+                    {imgPath ? (
+                      <Tooltip title="Enlarge Image">
+                        <IconButton
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          <OpenInFullIcon />
+                        </IconButton>
+                      </Tooltip>
+                    ) : (
+                      ""
+                    )}
+                    <Tooltip title="Delete Flashcard">
                       <IconButton
                         onClick={(e) => {
                           e.stopPropagation();
