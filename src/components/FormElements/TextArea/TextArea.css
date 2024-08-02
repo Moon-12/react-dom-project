@@ -1,5 +1,3 @@
 .input-area {
   max-height: 10em; /* Set a max-height as needed */
-  overflow: auto; /* Enable scroll bar when content overflows */
-  resize: vertical;
 }

@@ -9,8 +9,6 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "40em",
-  p: 4,
 };
 
 const ImagePopup = ({ open, handleModal, imageURL }) => {
@@ -23,7 +21,10 @@ const ImagePopup = ({ open, handleModal, imageURL }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <CardMedia sx={{ height: "40em", width: "40em" }} image={imageURL} />
+          <CardMedia
+            sx={{ height: "80vh", width: "80vw", backgroundSize: "contain" }}
+            image={imageURL}
+          />
         </Box>
       </Modal>
     </div>
