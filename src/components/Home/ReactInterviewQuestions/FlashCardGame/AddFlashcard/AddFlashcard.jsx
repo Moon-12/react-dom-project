@@ -148,7 +148,9 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
               <Button variant="contained" onClick={submit}>
                 Add
               </Button>
-              <Button variant="contained">Cancel</Button>
+              <Button variant="contained" onClick={handleModalFn}>
+                Cancel
+              </Button>
             </div>
           </FormProvider>
         </Box>
