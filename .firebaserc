@@ -7,6 +7,9 @@
       "hosting": {
         "dev-instance": [
           "dev-ashwija-nayak"
+        ],
+        "prod-instance": [
+          "ashwija-nayak"
         ]
       }
     }
