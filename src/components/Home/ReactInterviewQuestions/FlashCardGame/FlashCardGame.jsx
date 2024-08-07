@@ -13,6 +13,7 @@ import { Button } from "@mui/material";
 import AddFlashcardModal from "./AddFlashcard/AddFlashcard";
 
 export default function SelectTopic(props) {
+  const role = useSelector((state) => state.auth.role);
   const [openModal, setOpenModal] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState("React");
   const [curIndex, setCurIndex] = useState(0);
@@ -57,15 +58,19 @@ export default function SelectTopic(props) {
           </Select>
         </FormControl>
 
-        <Button
-          variant="outlined"
-          onClick={(e) => {
-            setOpenModal(true);
-          }}
-        >
-          <AddIcon />
-          New
-        </Button>
+        {role === "admin" ? (
+          <Button
+            variant="outlined"
+            onClick={(e) => {
+              setOpenModal(true);
+            }}
+          >
+            <AddIcon />
+            New
+          </Button>
+        ) : (
+          ""
+        )}
       </div>
       <FlashCard
         curIndex={curIndex}

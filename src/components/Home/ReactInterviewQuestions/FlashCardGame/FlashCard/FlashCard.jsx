@@ -20,6 +20,7 @@ export default function FlashCard({
   curIndex,
   handleNavigation,
 }) {
+  const role = useSelector((state) => state.auth.role);
   const [flip, setFlip] = useState(false);
   const [url, setUrl] = useState("");
   const [openImgPopup, setOpenImgPopup] = useState(false);
@@ -82,15 +83,19 @@ export default function FlashCard({
                     ) : (
                       ""
                     )}
-                    <Tooltip title="Delete Flashcard">
-                      <IconButton
-                        onClick={(e) => {
-                          e.stopPropagation();
-                        }}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </Tooltip>
+                    {role === "admin" ? (
+                      <Tooltip title="Delete Flashcard">
+                        <IconButton
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </Tooltip>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
 
