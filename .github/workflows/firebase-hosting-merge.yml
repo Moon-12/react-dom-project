@@ -24,3 +24,4 @@ jobs:
           channelId: live
           target: "prod-instance"
           projectId: "${{ secrets.PROD_PROJECT_ID }}"
+          channelId: live
