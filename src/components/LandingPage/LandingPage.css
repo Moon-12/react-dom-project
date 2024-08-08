@@ -1,0 +1,6 @@
+.login-action-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+}

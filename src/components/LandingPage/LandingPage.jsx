@@ -3,7 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInAnonymously } from "firebase/auth";
-
+import KeyIcon from "@mui/icons-material/Key";
+import { Button } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import "./LandingPage.css";
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   const navigate = useNavigate();
@@ -27,11 +30,20 @@ const LandingPage = () => {
   return (
     <>
       <div>Home page</div>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
+      <div className="login-action-btn-wrapper ">
+        <Link to="/login">
+          <Button variant="contained">
+            {" "}
+            <KeyIcon />
+            Login
+          </Button>
+        </Link>
 
-      <button onClick={handleGuestLoginFn}>Login as guest</button>
+        <Button variant="contained" onClick={handleGuestLoginFn}>
+          <PersonIcon />
+          Login as guest
+        </Button>
+      </div>
     </>
   );
 };
