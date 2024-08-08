@@ -20,3 +20,10 @@
 .logo {
   width: 2.5em;
 }
+
+.right-icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}

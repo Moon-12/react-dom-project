@@ -26,7 +26,8 @@ import { useRef } from "react";
 import logo from "../../assets/logo.png";
 import { environment } from "../../environments/environment";
 import ListItemButton from "@mui/material/ListItemButton";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useState } from "react";
 const pages = [
   "Resume",
@@ -191,16 +192,28 @@ const HeaderBar = () => {
               </Link>
             ))}
           </Box>
-          {loginResponse ? (
-            <Link to="/login" className="header-links" onClick={handleLogoutFn}>
-              <ListItemButton
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+          <div className="right-icons-wrapper">
+            <ListItemButton href="https://github.com/Moon-12">
+              <GitHubIcon />
+            </ListItemButton>
+            <ListItemButton href="https://www.linkedin.com/in/ashwija-nayak/">
+              <LinkedInIcon />
+            </ListItemButton>
+            {loginResponse ? (
+              <Link
+                to="/login"
+                className="header-links"
+                onClick={handleLogoutFn}
               >
-                Logout
-              </ListItemButton>
-            </Link>
-          ) : null}
+                <ListItemButton
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Logout
+                </ListItemButton>
+              </Link>
+            ) : null}
+          </div>
         </Toolbar>
       </Container>
     </AppBar>

@@ -52,3 +52,9 @@
     background-position: -8120px 0;
   }
 }
+
+@media (max-width: 449px) {
+  #marco {
+    display: none;
+  }
+}
