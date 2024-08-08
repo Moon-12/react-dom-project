@@ -8,6 +8,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import "./LandingPage.css";
 import CodeIcon from "@mui/icons-material/Code";
 import { GoogleIcon } from "../../icons/GoogleIcon";
+import CatAnimation from "./CatAnimation/CatAnimation";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
@@ -57,6 +58,7 @@ const LandingPage = () => {
             </div>
           </Button>
         </div>
+        <CatAnimation />
       </div>
     </>
   );
