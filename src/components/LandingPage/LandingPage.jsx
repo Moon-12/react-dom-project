@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInAnonymously } from "firebase/auth";
-import KeyIcon from "@mui/icons-material/Key";
 import { Button } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import "./LandingPage.css";
+import CodeIcon from "@mui/icons-material/Code";
+import { GoogleIcon } from "../../icons/GoogleIcon";
+
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   const navigate = useNavigate();
@@ -28,24 +30,35 @@ const LandingPage = () => {
       });
   };
   return (
-    <div className="landing-container">
-      <div className="page-title">ASHWIJA NAYAK</div>
-      <div>React Developer, Photographer, Cat Lover</div>
-      <div className="login-action-btn-wrapper ">
-        <Link to="/login">
-          <Button variant="contained">
-            {" "}
-            <KeyIcon />
-            Login
+    <>
+      <div className="landing-container">
+        <div>
+          <CodeIcon />
+        </div>
+        <div className="page-title">Ashwija Nayak</div>
+        <div>React Developer, Photographer, Cat Lover</div>
+        <div className="login-action-btn-wrapper ">
+          <Link to="/login">
+            <Button variant="contained">
+              <div className="button-content">
+                <div className="col ">
+                  <GoogleIcon />
+                </div>
+                <div className="col">Signup with Google</div>
+              </div>
+            </Button>
+          </Link>
+          <Button onClick={handleGuestLoginFn} variant="contained">
+            <div className="button-content">
+              <div className="col">
+                <PersonIcon />
+              </div>
+              <div className="col"> Guest Login</div>
+            </div>
           </Button>
-        </Link>
-
-        <Button variant="contained" onClick={handleGuestLoginFn}>
-          <PersonIcon />
-          Login as guest
-        </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
