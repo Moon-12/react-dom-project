@@ -9,8 +9,6 @@
   background: url("https://res.cloudinary.com/pastelitos/image/upload/v1610526571/eva/gatito_pushui.svg");
   height: 20em;
   width: 30em;
-
-  z-index: 10;
   -webkit-animation: sprite-animation 1.2s steps(16, end) infinite;
   -moz-animation: sprite-animation 1.2s steps(16, end) infinite;
   -ms-animation: sprite-animation 1.2s steps(16, end) infinite;

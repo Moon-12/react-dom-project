@@ -41,3 +41,8 @@ body {
 .content-body .ads {
   background: #e67e22;
 }
+
+main.content {
+  height: 81vh;
+  overflow: scroll;
+}

@@ -1,10 +1,6 @@
 import "./CatAnimation.css";
 const CatAnimation = () => {
-  return (
-    <div id="marco">
-      <div id="gato"></div>
-    </div>
-  );
+  return <div id="gato"></div>;
 };
 
 export default CatAnimation;

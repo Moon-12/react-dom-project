@@ -3,13 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInAnonymously } from "firebase/auth";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import "./LandingPage.css";
 import CodeIcon from "@mui/icons-material/Code";
 import { GoogleIcon } from "../../icons/GoogleIcon";
 import CatAnimation from "./CatAnimation/CatAnimation";
 import Tooltip from "@mui/material/Tooltip";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
@@ -69,6 +70,11 @@ const LandingPage = () => {
             </div>
           </Button>
         </div>
+        <IconButton>
+          <ArrowDropDownCircleIcon fontSize="large" />
+        </IconButton>
+      </div>
+      <div className="floating-cat">
         <CatAnimation />
       </div>
     </>
