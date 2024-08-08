@@ -15,6 +15,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   const userName = useSelector((state) => state.auth.userName);
+  const role = useSelector((state) => state.auth.role);
   const getUserRole = async (user) => {
     const docRef = doc(fireStoreDB, "user_profile", `${auth.currentUser.uid}`);
     const docSnap = await getDoc(docRef);
@@ -50,7 +51,9 @@ const Home = () => {
           <SideMenu />
         </nav>
         <main className="content">
-          {isLoggedIn ? `Welcome! ${userName}` : ""}
+          {isLoggedIn
+            ? `Welcome! ${role === "anonymous" ? "Anonymous User" : userName}`
+            : ""}
           <Outlet />
         </main>
         {/* <aside className="ads"></aside> */}
