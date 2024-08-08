@@ -9,6 +9,7 @@ import "./LandingPage.css";
 import CodeIcon from "@mui/icons-material/Code";
 import { GoogleIcon } from "../../icons/GoogleIcon";
 import CatAnimation from "./CatAnimation/CatAnimation";
+import Tooltip from "@mui/material/Tooltip";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
@@ -33,9 +34,19 @@ const LandingPage = () => {
   return (
     <>
       <div className="landing-container">
-        <div>
-          <CodeIcon />
+        <div className="code-icon-wrapper">
+          <Tooltip title="This site is open source!">
+            <a
+              className="code-icon-link"
+              href={`https://github.com/Moon-12/react-dom-project`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CodeIcon sx={{ fontSize: "4em" }} />
+            </a>
+          </Tooltip>
         </div>
+
         <div className="page-title">Ashwija Nayak</div>
         <div>React Developer, Photographer, Cat Lover</div>
         <div className="login-action-btn-wrapper ">

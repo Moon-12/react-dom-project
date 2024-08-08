@@ -26,5 +26,15 @@
 .col {
   display: flex;
   align-items: center;
-  height: 3em;
+  height: 4em;
+}
+
+.code-icon-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.code-icon-link {
+  color: #1976d2;
 }
