@@ -28,8 +28,9 @@ const LandingPage = () => {
       });
   };
   return (
-    <>
-      <div>Home page</div>
+    <div className="landing-container">
+      <div className="page-title">ASHWIJA NAYAK</div>
+      <div>React Developer, Photographer, Cat Lover</div>
       <div className="login-action-btn-wrapper ">
         <Link to="/login">
           <Button variant="contained">
@@ -44,7 +45,7 @@ const LandingPage = () => {
           Login as guest
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,3 +4,17 @@
   gap: 1em;
   align-items: center;
 }
+
+.page-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 4em;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  margin: 4em;
+}
