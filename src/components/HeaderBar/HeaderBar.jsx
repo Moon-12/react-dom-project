@@ -23,7 +23,7 @@ import {
 import { useEffect } from "react";
 import { setMenu } from "../../redux/slice/menuSlice";
 import { useRef } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/projectlogo.png";
 import { environment } from "../../environments/environment";
 import ListItemButton from "@mui/material/ListItemButton";
 import GitHubIcon from "@mui/icons-material/GitHub";

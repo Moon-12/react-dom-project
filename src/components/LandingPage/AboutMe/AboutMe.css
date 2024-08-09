@@ -1,0 +1,40 @@
+.profile-img {
+  width: 6em;
+  height: 6em;
+}
+
+.profile-abt-me-wrapper {
+  display: flex;
+  column-gap: 4em;
+}
+.contact-details-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 5em;
+}
+.about-me-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+  width: 70vw;
+  height: 80vh;
+  margin: auto;
+}
+.about-me-content {
+  text-align: justify;
+}
+/* .profile-img-wrapper {
+  grid-row: 1/4;
+}
+
+ 
+
+
+/* .contact-details-wrapper {
+  grid-row: 2 / 4;
+  grid-column: 2 / 3;
+} */
+.download-resume-btn {
+  width: 15em;
+  height: 5em;
+}

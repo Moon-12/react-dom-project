@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../firebase/firebaseConfig";
@@ -11,11 +11,12 @@ import { GoogleIcon } from "../../icons/GoogleIcon";
 import CatAnimation from "./CatAnimation/CatAnimation";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
+import AboutMe from "./AboutMe/AboutMe";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
   const navigate = useNavigate();
-
+  const ref = useRef();
   useEffect(() => {
     console.count("home loggedin state change");
     if (isLoggedIn) {
@@ -31,6 +32,9 @@ const LandingPage = () => {
       .catch((error) => {
         // ...error
       });
+  };
+  const handleDownArrowClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
@@ -70,13 +74,14 @@ const LandingPage = () => {
             </div>
           </Button>
         </div>
-        <IconButton>
+        <IconButton onClick={handleDownArrowClick}>
           <ArrowDropDownCircleIcon fontSize="large" />
         </IconButton>
       </div>
       <div className="floating-cat">
         <CatAnimation />
       </div>
+      <AboutMe ref={ref} />
     </>
   );
 };
