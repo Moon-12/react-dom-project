@@ -169,28 +169,33 @@ const HeaderBar = () => {
                 {appName}
               </ListItemButton>
             </Link>
-            {headers.map((header) => (
-              <Link
-                className="header-links"
-                key={header.id}
-                to={`${header.route}`}
-              >
-                <ListItemButton
-                  selected={activeHeader === header}
-                  onClick={() => handleHeaderClick(header)}
-                  sx={{
-                    my: 2,
-                    color: "white",
-                    display: "block",
-                    "&.Mui-selected": {
-                      backgroundColor: "#246db5",
-                    },
-                  }}
+            {headers.map((header) => {
+              const headerTobeDisplayed = header.enable ? (
+                <Link
+                  className="header-links"
+                  key={header.id}
+                  to={`${header.route}`}
                 >
-                  {header.header_name}
-                </ListItemButton>
-              </Link>
-            ))}
+                  <ListItemButton
+                    selected={activeHeader === header}
+                    onClick={() => handleHeaderClick(header)}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      "&.Mui-selected": {
+                        backgroundColor: "#246db5",
+                      },
+                    }}
+                  >
+                    {header.header_name}
+                  </ListItemButton>
+                </Link>
+              ) : (
+                ""
+              );
+              return headerTobeDisplayed;
+            })}
           </Box>
           <div className="right-icons-wrapper">
             <ListItemButton href="https://github.com/Moon-12">

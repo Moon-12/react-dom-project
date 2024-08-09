@@ -41,9 +41,10 @@
   grid-column: 2 / 3;
 }
 .download-resume-btn {
-  width: 15em;
-  height: 4em;
-  grid-column: 2 / 3;
+  display: flex;
+  gap: 0.5em;
+  width: 18em;
+  height: 5em;
 }
 .contact-resume-wrapper {
   display: grid;
@@ -54,4 +55,11 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+}
+
+.download-resume-link {
+  grid-column: 2 / 3;
+  text-decoration: none;
+  width: fit-content;
+  height: fit-content;
 }

@@ -2,6 +2,8 @@ import { Button, Typography } from "@mui/material";
 import logo from "../../../assets/projectlogo.png";
 import "./AboutMe.css";
 import { forwardRef } from "react";
+import DownloadIcon from "@mui/icons-material/Download";
+
 const AboutMe = forwardRef((props, ref) => {
   return (
     <div className="about-me-parent-wrapper">
@@ -37,9 +39,17 @@ const AboutMe = forwardRef((props, ref) => {
             <Typography>(281) 954-1710</Typography>
             <Typography>ashwijanayak@gmail.com</Typography>
           </div>
-          <Button variant="contained" className="download-resume-btn">
-            Download Resume
-          </Button>
+          <a
+            href={`https://firebasestorage.googleapis.com/v0/b/ashwija-nayak.appspot.com/o/assets%2FAshwija%20Nayak%20Resume.pdf?alt=media&token=${process.env.REACT_APP_RESUME_TOKEN}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-resume-link"
+          >
+            <Button variant="contained" className="download-resume-btn">
+              <DownloadIcon />
+              <div className="download-btn-text">Download Resume</div>
+            </Button>
+          </a>
         </div>
       </div>
     </div>
