@@ -27,3 +27,13 @@
   justify-content: center;
   gap: 1em;
 }
+
+.mobile-view-logo {
+  margin-right: 1em;
+  width: 2.5em;
+}
+@media (min-width: 900px) {
+  .mobile-view-logo {
+    display: none;
+  }
+}

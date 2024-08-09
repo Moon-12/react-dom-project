@@ -132,7 +132,7 @@ const HeaderBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <img src={logo} alt="logo" className="mobile-view-logo" />
           <Typography
             variant="h5"
             noWrap
@@ -149,10 +149,10 @@ const HeaderBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            My Portfolio
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link to="/s" className="header-links">
+            <Link to="/" className="header-links">
               <img src={logo} alt="logo" className="logo" />
               <ListItemButton
                 selected={activeHeader === appName}
