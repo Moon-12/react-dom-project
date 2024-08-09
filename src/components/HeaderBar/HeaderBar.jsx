@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HeaderBar.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebaseConfig";
@@ -44,7 +44,7 @@ const HeaderBar = () => {
   const [activeHeader, setActiveHeader] = useState(appName);
   const headers = useSelector((state) => state.header.headers);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const prevHeaderRef = useRef(null);
 
   const handleHeaderClick = (header) => {
@@ -85,6 +85,7 @@ const HeaderBar = () => {
   const handleLogoutFn = async () => {
     try {
       await signOut(auth);
+      navigate("/");
     } catch (error) {}
   };
 
@@ -204,11 +205,7 @@ const HeaderBar = () => {
               <LinkedInIcon />
             </ListItemButton>
             {loginResponse ? (
-              <Link
-                to="/login"
-                className="header-links"
-                onClick={handleLogoutFn}
-              >
+              <Link className="header-links" onClick={handleLogoutFn}>
                 <ListItemButton
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
