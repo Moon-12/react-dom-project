@@ -9,7 +9,7 @@ const AboutMe = forwardRef((props, ref) => {
     <div className="about-me-parent-wrapper">
       <div className="about-me-wrapper" ref={ref}>
         <div className="profile-img-wrapper">
-          <img className="profile-img" src={logo} />
+          <img className="profile-img" src={logo} alt="profile-pic" />
         </div>
         <div className="about-me-content">
           <Typography variant="h6" sx={{ fontWeight: 800 }}>
