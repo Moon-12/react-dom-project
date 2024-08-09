@@ -101,12 +101,7 @@ function App() {
             },
             {
               path: "about-me",
-              children: [
-                {
-                  path: "contact-details",
-                  element: <ContactDetails />,
-                },
-              ],
+              element: <ContactDetails />,
             },
           ],
         },
