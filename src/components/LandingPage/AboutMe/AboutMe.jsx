@@ -10,7 +10,9 @@ const AboutMe = forwardRef((props, ref) => {
           <img className="profile-img" src={logo} />
         </div>
         <div className="about-me-content">
-          <Typography>About Me</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 800 }}>
+            About Me
+          </Typography>
           <Typography>
             I am a passionate software engineer with over 5 years of experience
             in the industry. My expertise lies in C#, JavaScript, React, and
@@ -27,7 +29,9 @@ const AboutMe = forwardRef((props, ref) => {
         </div>
         <div className="contact-resume-wrapper">
           <div className="contact-details">
-            <Typography>Contact Details</Typography>
+            <Typography variant="h6" sx={{ fontWeight: 800 }}>
+              Contact Details
+            </Typography>
 
             <Typography>Ashwija Nayak </Typography>
             <Typography>(281) 954-1710</Typography>
