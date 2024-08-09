@@ -3,7 +3,7 @@
   height: 6em;
 }
 
-.profile-abt-me-wrapper {
+/* .profile-abt-me-wrapper {
   display: flex;
   column-gap: 4em;
 }
@@ -19,22 +19,39 @@
   width: 70vw;
   height: 80vh;
   margin: auto;
+} */
+.about-me-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  width: 70vw;
+  margin: 0 auto;
+  column-gap: 3em;
+  row-gap: 2em;
 }
 .about-me-content {
   text-align: justify;
 }
-/* .profile-img-wrapper {
+.profile-img-wrapper {
   grid-row: 1/4;
 }
 
- 
-
-
-/* .contact-details-wrapper {
+.contact-details-wrapper {
   grid-row: 2 / 4;
   grid-column: 2 / 3;
-} */
+}
 .download-resume-btn {
   width: 15em;
   height: 5em;
+  grid-column: 2 / 3;
+}
+.contact-resume-wrapper {
+  display: grid;
+  grid-template-rows: subgrid;
+}
+.about-me-parent-wrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }

@@ -4,8 +4,8 @@ import "./AboutMe.css";
 import { forwardRef } from "react";
 const AboutMe = forwardRef((props, ref) => {
   return (
-    <div className="about-me-wrapper" ref={ref}>
-      <div className="profile-abt-me-wrapper">
+    <div className="about-me-parent-wrapper">
+      <div className="about-me-wrapper" ref={ref}>
         <div className="profile-img-wrapper">
           <img className="profile-img" src={logo} />
         </div>
@@ -25,18 +25,18 @@ const AboutMe = forwardRef((props, ref) => {
             stay ahead in the ever-evolving tech landscape.
           </Typography>
         </div>
-      </div>
-      <div className="contact-details-wrapper">
-        <div className="contact-details">
-          <Typography>Contact Details</Typography>
+        <div className="contact-resume-wrapper">
+          <div className="contact-details">
+            <Typography>Contact Details</Typography>
 
-          <Typography>Ashwija Nayak </Typography>
-          <Typography>2819</Typography>
-          <Typography>ashwijanayak@gmail.com</Typography>
+            <Typography>Ashwija Nayak </Typography>
+            <Typography>(281) 954-1710</Typography>
+            <Typography>ashwijanayak@gmail.com</Typography>
+          </div>
+          <Button variant="contained" className="download-resume-btn">
+            Download Resume
+          </Button>
         </div>
-        <Button variant="contained" className="download-resume-btn">
-          Download Resume
-        </Button>
       </div>
     </div>
   );
