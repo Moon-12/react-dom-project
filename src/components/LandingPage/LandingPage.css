@@ -44,7 +44,7 @@
 }
 .floating-cat {
   right: 0;
-  margin-top: -16em;
+  margin-top: -11em;
   display: flex;
   justify-content: flex-end;
 }
