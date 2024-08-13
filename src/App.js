@@ -22,7 +22,6 @@ import SecureComp from "./components/SecureComp/SecureComp";
 import ThousandCheckboxes from "./components/Home/Projects/Medium/ThousandCheckboxes/ThousandCheckboxes";
 import Medium from "./components/Home/Projects/Medium/Medium";
 import ReactInterviewQuestions from "./components/Home/ReactInterviewQuestions/ReactInterviewQuestions";
-import AboutMe from "./components/LandingPage/AboutMe/AboutMe";
 import Welcome from "./components/LandingPage/Welcome/Welcome";
 import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
 
