@@ -37,52 +37,58 @@ const LandingPage = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <>
-      <div className="landing-container">
-        <div className="code-icon-wrapper">
-          <Tooltip title="This site is open source!">
-            <a
-              className="code-icon-link"
-              href={`https://github.com/Moon-12/react-dom-project`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <CodeIcon sx={{ fontSize: "4em" }} />
-            </a>
-          </Tooltip>
-        </div>
+    <div className="landing-parent">
+      <div className="partition">
+        <div className="landing-container">
+          <div className="code-icon-wrapper">
+            <Tooltip title="This site is open source!">
+              <a
+                className="code-icon-link"
+                href={`https://github.com/Moon-12/react-dom-project`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CodeIcon sx={{ fontSize: "4em" }} />
+              </a>
+            </Tooltip>
+          </div>
 
-        <div className="page-title">Ashwija Nayak</div>
-        <div>React Developer, Photographer, Cat Lover</div>
-        <div className="login-action-btn-wrapper ">
-          <Link to="/login">
-            <Button variant="contained">
-              <div className="button-content">
-                <div className="col ">
-                  <GoogleIcon />
+          <div className="page-title">Ashwija Nayak</div>
+          <div>React Developer, Photographer, Cat Lover</div>
+          <div className="login-action-btn-wrapper ">
+            <Link to="/login">
+              <Button variant="contained">
+                <div className="button-content">
+                  <div className="col ">
+                    <GoogleIcon />
+                  </div>
+                  <div className="col">Signup with Google</div>
                 </div>
-                <div className="col">Signup with Google</div>
+              </Button>
+            </Link>
+            <Button onClick={handleGuestLoginFn} variant="contained">
+              <div className="button-content">
+                <div className="col">
+                  <PersonIcon />
+                </div>
+                <div className="col"> Guest Login</div>
               </div>
             </Button>
-          </Link>
-          <Button onClick={handleGuestLoginFn} variant="contained">
-            <div className="button-content">
-              <div className="col">
-                <PersonIcon />
-              </div>
-              <div className="col"> Guest Login</div>
-            </div>
-          </Button>
+          </div>
+          <div>
+            <IconButton onClick={handleDownArrowClick}>
+              <ArrowDropDownCircleIcon style={{ fontSize: 65 }} />
+            </IconButton>
+          </div>
         </div>
-        <IconButton onClick={handleDownArrowClick}>
-          <ArrowDropDownCircleIcon fontSize="large" />
-        </IconButton>
+        <div className="floating-cat">
+          <CatAnimation />
+        </div>
       </div>
-      <div className="floating-cat">
-        <CatAnimation />
+      <div className="partition flex-end">
+        <AboutMe ref={ref} />
       </div>
-      <AboutMe ref={ref} />
-    </>
+    </div>
   );
 };
 
