@@ -138,7 +138,6 @@ const HeaderBar = () => {
           </Box>
           <img src={logo} alt="logo" className="mobile-view-logo" />
           <Typography
-            variant="h5"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
@@ -146,14 +145,12 @@ const HeaderBar = () => {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            My Portfolio
+            {appName}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link to="/" className="header-links">
