@@ -121,7 +121,7 @@ export default function FlashCard({
           onClick={() => handleNavigation(-1)}
           disabled={curIndex === 0}
         >
-          prev
+          Previous
         </Button>
         <Button
           className="nav-btn"
@@ -130,7 +130,7 @@ export default function FlashCard({
           onClick={() => handleNavigation(1)}
           disabled={curIndex === flashcard[selectedTopic]?.length - 1}
         >
-          next
+          Next
         </Button>
       </div>
       <ImagePopup
