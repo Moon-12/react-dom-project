@@ -4,6 +4,7 @@ import "./TextArea.css";
 import { useFormContext } from "react-hook-form";
 import { findFieldError, isEmptyObject } from "../formUtility";
 import FieldError from "../FieldError/FieldError";
+import { TextField } from "@mui/material";
 
 const TextArea = ({ placeholder, minRows, validators, fieldName }) => {
   const {
@@ -16,7 +17,8 @@ const TextArea = ({ placeholder, minRows, validators, fieldName }) => {
   return (
     <>
       {inputError.error && <FieldError message={inputError.error.message} />}
-      <Textarea
+      <TextField
+        multiline
         className="input-area"
         placeholder={placeholder}
         minRows={minRows}
