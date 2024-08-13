@@ -199,10 +199,13 @@ const HeaderBar = () => {
             })}
           </Box>
           <div className="right-icons-wrapper">
-            <ListItemButton href="https://github.com/Moon-12">
+            <ListItemButton href="https://github.com/Moon-12" target="_blank">
               <GitHubIcon />
             </ListItemButton>
-            <ListItemButton href="https://www.linkedin.com/in/ashwija-nayak/">
+            <ListItemButton
+              href="https://www.linkedin.com/in/ashwija-nayak/"
+              target="_blank"
+            >
               <LinkedInIcon />
             </ListItemButton>
             {loginResponse ? (
