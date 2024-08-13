@@ -28,7 +28,7 @@ body {
   flex-grow: 1; /* width: calc(100% - 200px); */
   overflow: auto;
   background: white;
-  margin: 1em;
+  margin: 1em 1.5em;
 }
 .content-body .sidenav,
 .content-body .ads {
