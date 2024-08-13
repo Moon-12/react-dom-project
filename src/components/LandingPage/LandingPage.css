@@ -16,9 +16,6 @@
 }
 
 .page-title {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 4em;
   text-align: center;
 }
 
@@ -50,7 +47,7 @@
   cursor: pointer;
 }
 .code-icon-link {
-  color: #1976d2;
+  color: black;
 }
 .floating-cat {
   right: 0;

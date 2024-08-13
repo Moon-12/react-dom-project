@@ -12,6 +12,7 @@ import CatAnimation from "./CatAnimation/CatAnimation";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import AboutMe from "./AboutMe/AboutMe";
+import { Typography } from "@mui/material";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
@@ -53,7 +54,9 @@ const LandingPage = () => {
             </Tooltip>
           </div>
 
-          <div className="page-title">Ashwija Nayak</div>
+          <Typography className="page-title" variant="h3">
+            Ashwija Nayak
+          </Typography>
           <div>React Developer, Photographer, Cat Lover</div>
           <div className="login-action-btn-wrapper ">
             <Link to="/login">

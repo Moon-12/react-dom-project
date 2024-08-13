@@ -11,7 +11,7 @@ const Welcome = () => {
       {" "}
       {isLoggedIn ? (
         <Typography variant="h3">
-          Welcome! {`${role === "anonymous" ? "Anonymous User" : userName}`}
+          Welcome! {`${role === "anonymous" ? "Guest user" : userName}`}
         </Typography>
       ) : (
         ""

@@ -165,9 +165,6 @@ const HeaderBar = () => {
                   my: 2,
                   color: "white",
                   display: "block",
-                  "&.Mui-selected": {
-                    backgroundColor: "#246db5",
-                  },
                 }}
               >
                 {appName}
@@ -187,9 +184,6 @@ const HeaderBar = () => {
                       my: 2,
                       color: "white",
                       display: "block",
-                      "&.Mui-selected": {
-                        backgroundColor: "#246db5",
-                      },
                     }}
                   >
                     {header.header_name}
