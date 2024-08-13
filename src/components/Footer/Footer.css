@@ -2,6 +2,7 @@
   display: flex;
   justify-content: flex-end;
   color: white;
+  margin-right: 2em;
 }
 
 .mail-to {
