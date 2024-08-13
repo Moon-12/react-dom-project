@@ -15,7 +15,6 @@ import MorseTranslator from "./components/Home/Projects/Easy/MorseTranslator/Mor
 import JwtDecoder from "./components/Home/Projects/Medium/JwtDecoder/JwtDecoder";
 import EmulatorLogin from "./components/EmulatorLogin/EmulatorLogin";
 import ReactTips from "./components/Home/ReactTips/ReactTips";
-import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
 import FlashCardGame from "./components/Home/ReactInterviewQuestions/FlashCardGame/FlashCardGame";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";

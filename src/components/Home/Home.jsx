@@ -6,7 +6,7 @@ import SideMenu from "../SideMenu/SideMenu";
 import { useEffect } from "react";
 import { auth, fireStoreDB } from "../../firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setLogInResponse } from "../../redux/slice/authSlice";
 import Footer from "../Footer/Footer";
 import { getDoc, doc } from "firebase/firestore";
