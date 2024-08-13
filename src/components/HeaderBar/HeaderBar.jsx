@@ -89,17 +89,24 @@ const HeaderBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: !loginResponse ? "none" : "flex", md: "none" },
+            }}
+          >
+            {loginResponse && (
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -119,7 +126,7 @@ const HeaderBar = () => {
               }}
             >
               {headers.map((header) => {
-                const headerTobeDisplayed = header.enable ? (
+                const headerTobeDisplayed = header.enable && (
                   <Link
                     key={header.id}
                     to={`${header.route}`}
@@ -132,8 +139,6 @@ const HeaderBar = () => {
                       </Typography>
                     </MenuItem>
                   </Link>
-                ) : (
-                  ""
                 );
                 return headerTobeDisplayed;
               })}
@@ -171,7 +176,7 @@ const HeaderBar = () => {
               </ListItemButton>
             </Link>
             {headers.map((header) => {
-              const headerTobeDisplayed = header.enable ? (
+              const headerTobeDisplayed = header.enable && (
                 <Link
                   className="header-links"
                   key={header.id}
@@ -189,8 +194,6 @@ const HeaderBar = () => {
                     {header.header_name}
                   </ListItemButton>
                 </Link>
-              ) : (
-                ""
               );
               return headerTobeDisplayed;
             })}
