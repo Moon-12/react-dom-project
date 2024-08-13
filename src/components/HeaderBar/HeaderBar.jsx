@@ -120,15 +120,18 @@ const HeaderBar = () => {
             >
               {headers.map((header) => {
                 const headerTobeDisplayed = header.enable ? (
-                  <MenuItem
+                  <Link
                     key={header.id}
-                    onClick={() => handleHeaderClick(header)}
+                    to={`${header.route}`}
+                    className="mobile-view-header-links"
                   >
-                    <Typography textAlign="center">
-                      {" "}
-                      {header.header_name}
-                    </Typography>
-                  </MenuItem>
+                    <MenuItem onClick={() => handleHeaderClick(header)}>
+                      <Typography textAlign="center">
+                        {" "}
+                        {header.header_name}
+                      </Typography>
+                    </MenuItem>
+                  </Link>
                 ) : (
                   ""
                 );

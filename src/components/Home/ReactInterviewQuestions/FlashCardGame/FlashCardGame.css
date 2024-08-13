@@ -1,7 +1,7 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 55vw;
   gap: 2em;
   justify-content: center;
 }
