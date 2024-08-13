@@ -9,7 +9,7 @@
 
 .flip-card {
   background-color: transparent;
-  width: 35em;
+  width: inherit;
   height: 25em;
   perspective: 1000px;
 }

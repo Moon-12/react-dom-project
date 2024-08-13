@@ -1,10 +1,11 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  width: min-content;
+  width: 60vw;
   gap: 2em;
   justify-content: center;
 }
 .select-with-add-btn {
   display: flex;
+  width: inherit;
 }
