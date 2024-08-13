@@ -23,6 +23,8 @@ import SecureComp from "./components/SecureComp/SecureComp";
 import ThousandCheckboxes from "./components/Home/Projects/Medium/ThousandCheckboxes/ThousandCheckboxes";
 import Medium from "./components/Home/Projects/Medium/Medium";
 import ReactInterviewQuestions from "./components/Home/ReactInterviewQuestions/ReactInterviewQuestions";
+import AboutMe from "./components/LandingPage/AboutMe/AboutMe";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -101,7 +103,7 @@ function App() {
             },
             {
               path: "about-me",
-              element: <ContactDetails />,
+              element: <AboutMe />,
             },
           ],
         },
