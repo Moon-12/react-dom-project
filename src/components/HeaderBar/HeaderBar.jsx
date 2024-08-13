@@ -28,13 +28,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useState } from "react";
-const pages = [
-  "Resume",
-  "React tips",
-  "React Interview question",
-  "Mini DOM projects",
-  "About Me",
-];
 
 const HeaderBar = () => {
   const { appName } = environment;
@@ -66,6 +59,7 @@ const HeaderBar = () => {
     // Update the previous header ref
     prevHeaderRef.current = header;
     dispatch(setcurrentHeader({ currentHeader: header }));
+    handleCloseNavMenu();
   };
 
   useEffect(() => {
@@ -80,7 +74,9 @@ const HeaderBar = () => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {};
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   const handleLogoutFn = async () => {
     try {
@@ -122,14 +118,22 @@ const HeaderBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem>
-                <Typography textAlign="center">Home</Typography>
-              </MenuItem>
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {headers.map((header) => {
+                const headerTobeDisplayed = header.enable ? (
+                  <MenuItem
+                    key={header.id}
+                    onClick={() => handleHeaderClick(header)}
+                  >
+                    <Typography textAlign="center">
+                      {" "}
+                      {header.header_name}
+                    </Typography>
+                  </MenuItem>
+                ) : (
+                  ""
+                );
+                return headerTobeDisplayed;
+              })}
             </Menu>
           </Box>
           <img src={logo} alt="logo" className="mobile-view-logo" />
