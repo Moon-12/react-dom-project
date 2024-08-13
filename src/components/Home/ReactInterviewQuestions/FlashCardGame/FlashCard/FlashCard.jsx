@@ -69,20 +69,6 @@ export default function FlashCard({
                     {title}
                   </Typography>
                   <div className="card-action-btns ">
-                    {imgPath ? (
-                      <Tooltip title="Enlarge Image">
-                        <IconButton
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleImagePopupModal();
-                          }}
-                        >
-                          <OpenInFullIcon />
-                        </IconButton>
-                      </Tooltip>
-                    ) : (
-                      ""
-                    )}
                     {role === "admin" ? (
                       <Tooltip title="Delete Flashcard">
                         <IconButton
@@ -102,12 +88,35 @@ export default function FlashCard({
                 <Typography component="div" variant="h6">
                   {question}
                 </Typography>
-                {imgPath ? (
-                  <CardMedia
-                    sx={{ height: "18em", width: "25em" }}
-                    image={url}
-                  />
-                ) : null}
+                <div className="card-media-wrapper">
+                  {imgPath ? (
+                    <CardMedia
+                      sx={{ height: "18em", width: "25em" }}
+                      image={url}
+                    />
+                  ) : null}
+                  {imgPath ? (
+                    <Tooltip title="Enlarge Image">
+                      <IconButton
+                        className="img-enlarge"
+                        sx={{ position: "absolute" }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleImagePopupModal();
+                        }}
+                      >
+                        <OpenInFullIcon
+                          sx={{
+                            backgroundColor: "white",
+                            borderRadius: "1em",
+                          }}
+                        />
+                      </IconButton>
+                    </Tooltip>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </CardContent>
             </div>
           </div>

@@ -59,3 +59,13 @@
   position: absolute;
   right: 0;
 }
+
+.card-media-wrapper {
+  position: relative;
+}
+
+.img-enlarge {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
