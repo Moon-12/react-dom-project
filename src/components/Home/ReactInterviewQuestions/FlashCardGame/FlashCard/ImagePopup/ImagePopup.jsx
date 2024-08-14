@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -20,10 +21,12 @@ const ImagePopup = ({ open, handleModal, imageURL }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <CardMedia
-            sx={{ height: "80vh", width: "80vw", backgroundSize: "contain" }}
-            image={imageURL}
-          />
+          <CardActionArea onClick={handleModal}>
+            <CardMedia
+              sx={{ height: "80vh", width: "80vw", backgroundSize: "contain" }}
+              image={imageURL}
+            />
+          </CardActionArea>
         </Box>
       </Modal>
     </div>
