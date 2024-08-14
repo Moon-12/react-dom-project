@@ -101,6 +101,7 @@ export default function FlashCard({
                             backgroundColor: "white",
                             borderRadius: "0.5em",
                             padding: "0.2em",
+                            border: "solid black 0.1em",
                           }}
                         />
                       </IconButton>
