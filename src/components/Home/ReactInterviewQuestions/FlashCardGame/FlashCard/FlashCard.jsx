@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import "./FlashCard.css";
 import { useEffect } from "react";
-import CardMedia from "@mui/material/CardMedia";
 import { useSelector } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
@@ -85,7 +84,9 @@ export default function FlashCard({
                   </div>
                 </div>
                 <div className="card-media-wrapper">
-                  {imgPath ? <img src={url} className="card-media" /> : null}
+                  {imgPath ? (
+                    <img src={url} className="card-media" alt="card-media" />
+                  ) : null}
                   {imgPath ? (
                     <Tooltip title="Enlarge Image">
                       <IconButton
