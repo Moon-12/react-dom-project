@@ -85,13 +85,7 @@ export default function FlashCard({
                   </div>
                 </div>
                 <div className="card-media-wrapper">
-                  {imgPath ? (
-                    <CardMedia
-                      sx={{ height: "18em" }}
-                      image={url}
-                      className="card-media"
-                    />
-                  ) : null}
+                  {imgPath ? <img src={url} className="card-media" /> : null}
                   {imgPath ? (
                     <Tooltip title="Enlarge Image">
                       <IconButton
@@ -105,7 +99,8 @@ export default function FlashCard({
                         <OpenInFullIcon
                           sx={{
                             backgroundColor: "white",
-                            borderRadius: "1em",
+                            borderRadius: "0.5em",
+                            padding: "0.2em",
                           }}
                         />
                       </IconButton>

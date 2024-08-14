@@ -36,7 +36,7 @@ export default function SelectTopic(props) {
   };
 
   return (
-    <Box sx={{ margin: "1em" }} className="card-container">
+    <Box className="card-container">
       <div className="select-with-add-btn">
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Topic</InputLabel>

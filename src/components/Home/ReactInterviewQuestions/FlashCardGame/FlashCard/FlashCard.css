@@ -10,8 +10,7 @@
 .flip-card {
   background-color: transparent;
   width: inherit;
-  height: 30em;
-  perspective: 1000px;
+  height: 55vh;
 }
 
 .flip-card-inner {
@@ -62,8 +61,8 @@
 
 .card-media-wrapper {
   position: relative;
-
   margin: auto;
+  width: fit-content;
 }
 
 .img-enlarge {
@@ -80,5 +79,7 @@
 }
 
 .card-media {
-  width: inherit;
+  max-height: 30vh;
+  max-width: 35vh;
+  border-radius: 0.5em;
 }
