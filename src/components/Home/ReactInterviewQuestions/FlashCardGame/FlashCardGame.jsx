@@ -58,15 +58,17 @@ export default function SelectTopic(props) {
           </Select>
         </FormControl>
 
-        <Button
-          variant="outlined"
-          onClick={(e) => {
-            setOpenModal(true);
-          }}
-        >
-          <AddIcon />
-          New
-        </Button>
+        {role === "admin" && (
+          <Button
+            variant="outlined"
+            onClick={(e) => {
+              setOpenModal(true);
+            }}
+          >
+            <AddIcon />
+            New
+          </Button>
+        )}
       </div>
       <FlashCard
         curIndex={curIndex}
