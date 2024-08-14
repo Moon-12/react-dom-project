@@ -6,7 +6,7 @@ import { findFieldError, isEmptyObject } from "../formUtility";
 import FieldError from "../FieldError/FieldError";
 import { TextField } from "@mui/material";
 
-const TextArea = ({ placeholder, minRows, validators, fieldName }) => {
+const TextArea = ({ placeholder, maxRows, validators, fieldName }) => {
   const {
     register,
     formState: { errors },
@@ -21,7 +21,7 @@ const TextArea = ({ placeholder, minRows, validators, fieldName }) => {
         multiline
         className="input-area"
         placeholder={placeholder}
-        minRows={minRows}
+        maxRows={maxRows}
         name={fieldName}
         error={!isEmptyObject(inputError)}
         {...register(fieldName, validators)}

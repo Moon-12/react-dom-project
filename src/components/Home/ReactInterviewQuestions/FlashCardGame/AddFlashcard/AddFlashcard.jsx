@@ -127,7 +127,7 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
               <TextArea
                 fieldName="question"
                 placeholder="Type in the question...."
-                minRows={4}
+                maxRows={4}
                 validators={combineValidators(
                   requiredValidation(),
                   maxLengthValidation()
@@ -136,7 +136,7 @@ export default function AddFlashcardModal({ open, handleModalFn }) {
               <TextArea
                 fieldName="answer"
                 placeholder="Type in the answer..."
-                minRows={4}
+                maxRows={4}
                 validators={combineValidators(
                   requiredValidation(),
                   maxLengthValidation()

@@ -45,7 +45,7 @@ export default function FlashCard({
 
   return (
     <>
-      <Box sx={{ minWidth: 275 }}>
+      <Box>
         <div className="flip-card" onClick={() => setFlip(!flip)}>
           <div
             className={`flip-card-inner ${
@@ -58,7 +58,7 @@ export default function FlashCard({
               </CardContent>
             </div>
             <div className="flip-card-front">
-              <CardContent>
+              <CardContent className="card-content">
                 <div className="card-header">
                   <Typography
                     gutterBottom
@@ -84,15 +84,12 @@ export default function FlashCard({
                     )}
                   </div>
                 </div>
-
-                <Typography component="div" variant="h6">
-                  {question}
-                </Typography>
                 <div className="card-media-wrapper">
                   {imgPath ? (
                     <CardMedia
-                      sx={{ height: "18em", width: "25em" }}
+                      sx={{ height: "18em" }}
                       image={url}
+                      className="card-media"
                     />
                   ) : null}
                   {imgPath ? (
@@ -117,6 +114,9 @@ export default function FlashCard({
                     ""
                   )}
                 </div>
+                <Typography component="div" className="flashcard-question">
+                  {question}
+                </Typography>
               </CardContent>
             </div>
           </div>

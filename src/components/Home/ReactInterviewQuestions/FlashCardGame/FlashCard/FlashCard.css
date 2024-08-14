@@ -10,7 +10,7 @@
 .flip-card {
   background-color: transparent;
   width: inherit;
-  height: 25em;
+  height: 30em;
   perspective: 1000px;
 }
 
@@ -62,10 +62,23 @@
 
 .card-media-wrapper {
   position: relative;
+
+  margin: auto;
 }
 
 .img-enlarge {
   position: absolute;
   right: 0.5em;
   top: 0.5em;
+}
+.card-content {
+  width: inherit;
+}
+.flashcard-question {
+  height: 5em;
+  overflow: auto;
+}
+
+.card-media {
+  width: inherit;
 }
