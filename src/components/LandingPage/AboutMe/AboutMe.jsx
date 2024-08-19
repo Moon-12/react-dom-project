@@ -39,7 +39,7 @@ const AboutMe = forwardRef((props, ref) => {
 
               <Typography>Ashwija Nayak </Typography>
               <Typography>(281) 954-1710</Typography>
-              <Typography>ashwijanayak@gmail.com</Typography>
+              <Typography>ashwija.nayak2@gmail.com</Typography>
             </div>
             <div className="spacer"></div>
             <a
