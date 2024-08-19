@@ -17,9 +17,9 @@ const AboutMe = forwardRef((props, ref) => {
               About Me
             </Typography>
             <Typography>
-              I am a passionate software engineer with over 5 years of
-              experience in the industry. My expertise lies in C#, JavaScript,
-              React, and Node.js, which I use to develop innovative web
+              I am a passionate software engineer with over 6 years of
+              experience in the industry. My expertise lies in JavaScript,
+              React, and Node.js, which I have used to develop innovative web
               solutions. I thrive in environments that require strong project
               management skills and the ability to lead teams towards achieving
               common goals. My proficiency in cloud technologies like AWS and
