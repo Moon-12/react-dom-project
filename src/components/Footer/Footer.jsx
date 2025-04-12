@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="foot">
       {" "}
-      {appName}&nbsp;[ver {version ?? "Development"}]&nbsp;is developed by&nbsp;
+      {appName}&nbsp;[{version ?? "Development"}]&nbsp;is developed by&nbsp;
       {author}
       <span
         className="mail-to"
