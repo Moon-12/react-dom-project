@@ -2,7 +2,8 @@ import { environment } from "../../environments/environment";
 import "./Footer.css";
 
 const Footer = () => {
-  const { appName, version, author } = environment;
+  const { appName, author } = environment;
+  const version = process.env.TAG_NAME;
   return (
     <div className="foot">
       {" "}
