@@ -2,7 +2,7 @@ name: Deploy to Production on Tag Creation for Main Branch
 "on":
   push:
     tags:
-      - "*" # Matches any tag pushed (e.g., v1.0.0)
+      - "v*" # Matches any tag pushed starting with v
     branches:
       - main # Ensures the tag is associated with the main branch
 jobs:
