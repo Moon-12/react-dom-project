@@ -1,3 +1,24 @@
 .login-container {
   text-align: center;
 }
+
+.social-btn {
+  width: 15em;
+  border: 1px solid #c2c8d0;
+  border-radius: 0.5em;
+  font-size: 16px;
+  align-items: center;
+  background-color: #fff;
+  height: 3em;
+  cursor: pointer;
+  color: #2d333a;
+  margin-bottom: 8px;
+}
+.social-text {
+  margin-left: 0.5em;
+  font-size: larger;
+}
+.social-wrapper {
+  display: flex;
+  align-items: center;
+}

@@ -7,10 +7,38 @@
 .header-links {
   text-decoration: none;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .header-items {
   flex: auto;
   display: flex;
   column-gap: 1em;
+}
+
+.logo {
+  width: 2.5em;
+}
+
+.right-icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.mobile-view-logo {
+  margin-right: 1em;
+  width: 2.5em;
+}
+@media (min-width: 900px) {
+  .mobile-view-logo {
+    display: none;
+  }
+}
+
+.mobile-view-header-links {
+  text-decoration: none;
+  color: black;
 }

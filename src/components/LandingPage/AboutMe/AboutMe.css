@@ -1,0 +1,118 @@
+.profile-img {
+  width: 6em;
+  height: 6em;
+}
+
+/* .profile-abt-me-wrapper {
+  display: flex;
+  column-gap: 4em;
+}
+.contact-details-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 5em;
+}
+.about-me-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+  width: 70vw;
+  height: 80vh;
+  margin: auto;
+} */
+/* .about-me-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  width: 70vw;
+  margin: 0 auto;
+  column-gap: 3em;
+  row-gap: 2em;
+}
+.about-me-content {
+  text-align: justify;
+}
+.profile-img-wrapper {
+  grid-row: 1/4;
+}
+
+.contact-details-wrapper {
+  grid-row: 2 / 4;
+  grid-column: 2 / 3;
+}
+.download-resume-btn {
+  display: flex;
+  gap: 0.5em;
+  width: 18em;
+  height: 5em;
+}
+.contact-resume-wrapper {
+  display: grid;
+  grid-template-rows: subgrid;
+}
+.about-me-parent-wrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.download-resume-link {
+  grid-column: 2 / 3;
+  text-decoration: none;
+  width: fit-content;
+  height: fit-content;
+} */
+
+.about-me-wrapper {
+  display: flex;
+  gap: 4em;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contact-resume-wrapper {
+  display: flex;
+  gap: 3em;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.about-me-content {
+  text-align: justify;
+}
+
+.about-me-parent-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.about-me-contact-wrapper {
+  flex-direction: column;
+  display: flex;
+  row-gap: 2em;
+  align-items: center;
+  max-width: 45em;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.spacer {
+  flex: 1;
+}
+.download-resume-link {
+  flex: 1;
+}
+
+.download-resume-btn {
+  display: flex;
+  gap: 0.5em;
+  width: 12em;
+  height: 4em;
+}

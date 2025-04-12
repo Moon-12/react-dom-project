@@ -1,0 +1,85 @@
+.nav-btn-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.nav-btn {
+  width: 10em;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: inherit;
+  height: 55vh;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-inner-rotate {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffcccc;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #b3e6cc;
+  color: black;
+  transform: rotateY(180deg);
+}
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-action-btns {
+  position: absolute;
+  right: 0;
+}
+
+.card-media-wrapper {
+  position: relative;
+  margin: auto;
+  width: fit-content;
+}
+
+.img-enlarge {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
+.card-content {
+  width: inherit;
+}
+.flashcard-question {
+  height: 5em;
+  overflow: auto;
+}
+
+.card-media {
+  max-height: 30vh;
+  max-width: 35vh;
+  border-radius: 0.5em;
+}

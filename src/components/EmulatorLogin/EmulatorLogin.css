@@ -1,0 +1,12 @@
+.emul-login-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  margin: 1em;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 1em;
+}

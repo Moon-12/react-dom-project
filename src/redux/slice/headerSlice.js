@@ -1,20 +1,19 @@
 // src/features/header/headerSlice.js
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { mockResponse } from "../../components/mockResponses/mockResponse";
+import { fireStoreDB } from "../../firebase/firebaseConfig";
+import { getDoc, doc } from "firebase/firestore";
 
 // Async thunk for fetching the header
 export const fetchHeader = createAsyncThunk(
   "header/fetchHeader",
-  async ({ roleId }, { rejectWithValue }) => {
+  async ({ role }, { rejectWithValue }) => {
     try {
-      // const response = await axios.get(
-      //   `http://localhost:8080/header/${roleId}`
-      // );
-      return mockResponse.headerResponse;
+      const metaDataDocRef = doc(fireStoreDB, "common", "meta-data");
+      const docSnap = await getDoc(metaDataDocRef);
+      if (docSnap.exists()) return docSnap.data();
     } catch (err) {
-      return rejectWithValue(err.response.data);
+      return rejectWithValue(err.message);
     }
   }
 );
@@ -22,10 +21,11 @@ export const fetchHeader = createAsyncThunk(
 const headerSlice = createSlice({
   name: "header",
   initialState: {
-    headers: null,
+    headers: [],
     currentHeaderRoute: "",
     status: "idle",
     error: null,
+    currentHeader: "",
   },
   reducers: {
     setcurrentHeaderRoute: (state, action) => {
@@ -33,8 +33,15 @@ const headerSlice = createSlice({
       state.currentHeaderRoute = currentHeaderRoute;
     },
     clearHeaders: (state) => {
-      state.headers = null;
+      state.headers = [];
       state.currentHeaderRoute = "";
+    },
+    clearCurrentHeader: (state) => {
+      state.currentHeader = "";
+    },
+    setcurrentHeader: (state, action) => {
+      const { currentHeader } = action.payload;
+      state.currentHeader = currentHeader;
     },
   },
   extraReducers: (builder) => {
@@ -43,8 +50,9 @@ const headerSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchHeader.fulfilled, (state, action) => {
+        const { header } = action.payload || {};
         state.status = "succeeded";
-        state.headers = action.payload.data;
+        state.headers = header;
       })
       .addCase(fetchHeader.rejected, (state, action) => {
         state.status = "failed";
@@ -53,5 +61,10 @@ const headerSlice = createSlice({
   },
 });
 
-export const { clearHeaders, setcurrentHeaderRoute } = headerSlice.actions;
+export const {
+  clearHeaders,
+  setcurrentHeaderRoute,
+  setcurrentHeader,
+  clearCurrentHeader,
+} = headerSlice.actions;
 export default headerSlice.reducer;
