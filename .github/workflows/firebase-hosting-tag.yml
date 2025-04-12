@@ -12,9 +12,12 @@ jobs:
       REACT_APP_FIREBASE_TOKEN: "${{ secrets.FIREBASE_LOGIN_TOKEN }}"
       REACT_APP_PROJECT_ICON_TOKEN: "${{secrets.FIREBASE_PROJECT_ICON_TOKEN}}"
       REACT_APP_RESUME_TOKEN: "${{secrets.FIREBASE_RESUME_TOKEN}}"
-      TAG_NAME: "${{ github.ref_name }}"
+      REACT_APP_TAG_NAME: "${{ github.ref_name }}"
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          echo "REACT_APP_TAG_NAME=$REACT_APP_TAG_NAME"
+          echo "GitHub ref_name=${{ github.ref_name }}"
       - run: npm --version
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0

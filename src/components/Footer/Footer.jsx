@@ -3,11 +3,11 @@ import "./Footer.css";
 
 const Footer = () => {
   const { appName, author } = environment;
-  const version = process.env.TAG_NAME;
+  const version = process.env.REACT_APP_TAG_NAME;
   return (
     <div className="foot">
       {" "}
-      {appName}&nbsp;[ver {version}]&nbsp;is developed by&nbsp;
+      {appName}&nbsp;[ver {version ?? "Development"}]&nbsp;is developed by&nbsp;
       {author}
       <span
         className="mail-to"
