@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import ProjectCard from "./ProjectCard/ProjectCard";
+
 import TechStackGrid from "./TechStack/TechStack";
 import CertificatesGrid from "./Certificates/Certificates";
+import Project from "./Project/Project";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -79,7 +80,7 @@ const PortfolioTabs = () => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <ProjectCard />
+        <Project />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <CertificatesGrid />

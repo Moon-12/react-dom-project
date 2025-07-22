@@ -22,6 +22,7 @@ const headerSlice = createSlice({
   name: "header",
   initialState: {
     headers: [],
+    cardProject: [],
     currentHeaderRoute: "",
     status: "idle",
     error: null,
@@ -50,9 +51,10 @@ const headerSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchHeader.fulfilled, (state, action) => {
-        const { header } = action.payload || {};
+        const { header, cardProject } = action.payload || {};
         state.status = "succeeded";
         state.headers = header;
+        state.cardProject = cardProject;
       })
       .addCase(fetchHeader.rejected, (state, action) => {
         state.status = "failed";

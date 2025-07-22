@@ -13,7 +13,7 @@ const TechStackGrid = () => {
     <Box sx={{ flexGrow: 1, p: 2 }}>
       <Grid container spacing={3} justifyContent="center">
         {techStacks.map((tech) => (
-          <Grid item xs={6} sm={4} md={3} key={tech.id}>
+          <Grid item xs={12} sm={6} md={3} key={tech.id}>
             <Card
               variant="outlined"
               sx={{
@@ -34,13 +34,23 @@ const TechStackGrid = () => {
                   src={tech.url}
                   alt={tech.name}
                   sx={{
-                    maxHeight: "70%", // scale to fit height
-                    maxWidth: "70%", // scale to fit width
-                    objectFit: "contain",
-                    // prevent cut-off
+                    width: "100%", // ensures full container width
+                    height: "auto", // auto height to preserve aspect ratio
+                    maxHeight: 80, // limits height so image doesn't overflow
+                    objectFit: "contain", // fits image inside box
+                    mb: 1, // spacing below image
                   }}
                 />
-                <Typography sx={{ fontWeight: "bold" }}>{tech.name}</Typography>
+                <Typography
+                  sx={{
+                    fontWeight: "bold",
+                    fontSize: "0.9rem",
+                    textAlign: "center",
+                    wordBreak: "break-word", // ensures long names don’t overflow
+                  }}
+                >
+                  {tech.name}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
