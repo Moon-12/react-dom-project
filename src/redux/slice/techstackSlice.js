@@ -22,6 +22,7 @@ const techSlice = createSlice({
   name: "techstack",
   initialState: {
     techStacks: [],
+    certificates: [],
     status: "idle",
     error: null,
   },
@@ -32,9 +33,10 @@ const techSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchTechStack.fulfilled, (state, action) => {
-        const { tech } = action.payload || {};
+        const { tech, certificates } = action.payload || {};
         state.status = "succeeded";
         state.techStacks = tech;
+        state.certificates = certificates;
       })
       .addCase(fetchTechStack.rejected, (state, action) => {
         state.status = "failed";

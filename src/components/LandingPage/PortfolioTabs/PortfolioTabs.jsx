@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import TechStackGrid from "./TechStack/TechStack";
+import CertificatesGrid from "./Certificates/Certificates";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -81,7 +82,7 @@ const PortfolioTabs = () => {
         <ProjectCard />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <CertificatesGrid />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <TechStackGrid />
