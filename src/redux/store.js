@@ -5,6 +5,7 @@ import roleReducer from "./slice/roleSlice";
 import headerReducer from "./slice/headerSlice";
 import menuReducer from "./slice/menuSlice";
 import flashacardReducer from "./slice/flashcardSlice";
+import techReducer from "./slice/techstackSlice";
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -12,6 +13,7 @@ const store = configureStore({
     header: headerReducer,
     menu: menuReducer,
     flashcardReducer: flashacardReducer,
+    techReducer,
   },
 });
 
