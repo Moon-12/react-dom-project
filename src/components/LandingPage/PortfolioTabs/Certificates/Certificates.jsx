@@ -1,4 +1,4 @@
-import { Grid, Card, Box } from "@mui/material";
+import { Grid, Card, Box, Typography } from "@mui/material";
 
 import { useSelector } from "react-redux";
 
@@ -42,6 +42,16 @@ const CertificatesGrid = () => {
                   }}
                 />
               </a>
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "0.9rem",
+                  textAlign: "center",
+                  wordBreak: "break-word", // ensures long names don’t overflow
+                }}
+              >
+                {certificate.name}
+              </Typography>
             </Card>
           </Grid>
         ))}
