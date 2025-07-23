@@ -18,7 +18,7 @@ const CertificatesGrid = () => {
     <Box sx={{ flexGrow: 1, p: 2 }}>
       <Grid container spacing={3} justifyContent="center">
         {certificates.map((certificate) => (
-          <Grid item xs={6} sm={4} md={5} key={certificate.id}>
+          <Grid item xs={12} sm={6} md={4} key={certificate.id}>
             <Card
               variant="outlined"
               sx={{
