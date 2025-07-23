@@ -24,6 +24,7 @@ import Medium from "./components/Home/Projects/Medium/Medium";
 import ReactInterviewQuestions from "./components/Home/ReactInterviewQuestions/ReactInterviewQuestions";
 import Welcome from "./components/LandingPage/Welcome/Welcome";
 import ContactDetails from "./components/Home/ContactDetails/ContactDetails";
+import ProjectDetails from "./components/LandingPage/PortfolioTabs/Project/ProjectCard/ProjectDetails/ProjectDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -110,6 +111,10 @@ function App() {
             {
               path: "about-me",
               element: <ContactDetails />,
+            },
+            {
+              path: "project-details/:projectId",
+              element: <ProjectDetails />,
             },
           ],
         },
