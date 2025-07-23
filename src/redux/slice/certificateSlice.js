@@ -5,11 +5,11 @@ import { fireStoreDB } from "../../firebase/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
 
 // Async thunk for fetching the techstacks
-export const fetchTechStack = createAsyncThunk(
-  "tech/fetchTechstack",
+export const fetchCertificate = createAsyncThunk(
+  "certificate/fetchCertificates",
   async (_, { rejectWithValue }) => {
     try {
-      const techDocRef = doc(fireStoreDB, "common", "techstack-metadata");
+      const techDocRef = doc(fireStoreDB, "common", "certificate-metadata");
       const docSnap = await getDoc(techDocRef);
       if (docSnap.exists()) return docSnap.data();
     } catch (err) {
@@ -18,29 +18,29 @@ export const fetchTechStack = createAsyncThunk(
   }
 );
 
-const techSlice = createSlice({
-  name: "techstack",
+const certificateSlice = createSlice({
+  name: "certificate",
   initialState: {
-    techStacks: [],
+    certificates: [],
     status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTechStack.pending, (state) => {
+      .addCase(fetchCertificate.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchTechStack.fulfilled, (state, action) => {
-        const { tech } = action.payload || {};
+      .addCase(fetchCertificate.fulfilled, (state, action) => {
+        const { certificates } = action.payload || {};
         state.status = "succeeded";
-        state.techStacks = tech;
+        state.certificates = certificates;
       })
-      .addCase(fetchTechStack.rejected, (state, action) => {
+      .addCase(fetchCertificate.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
   },
 });
 
-export default techSlice.reducer;
+export default certificateSlice.reducer;

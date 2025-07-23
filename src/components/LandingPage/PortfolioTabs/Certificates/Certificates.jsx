@@ -1,9 +1,18 @@
 import { Grid, Card, Box, Typography } from "@mui/material";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCertificate } from "../../../../redux/slice/certificateSlice";
+import { useEffect } from "react";
 
 const CertificatesGrid = () => {
-  const certificates = useSelector((state) => state.techReducer.certificates);
+  const certificates = useSelector(
+    (state) => state.certificateReducer.certificates
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCertificate());
+  }, [dispatch]);
 
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>

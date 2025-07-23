@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 const TechStackGrid = () => {
   const techStacks = useSelector((state) => state.techReducer.techStacks);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchTechStack());
-  }, []);
+  }, [dispatch]);
+
   return (
     <Box sx={{ flexGrow: 1, p: 2 }}>
       <Grid container spacing={3} justifyContent="center">
