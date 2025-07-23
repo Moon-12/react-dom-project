@@ -1,6 +1,5 @@
 import "./App.css";
 import ErrorPage from "./components/ErrorPage";
-import LoginPage from "./components/LoginPage/LoginPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -120,13 +119,8 @@ function App() {
         },
         { path: "/", element: <LandingPage /> },
         {
-          path: "/login",
-          element:
-            process.env.NODE_ENV === "development" ? (
-              <EmulatorLogin />
-            ) : (
-              <LoginPage />
-            ),
+          path: "/emulator-login",
+          element: <EmulatorLogin />,
         },
       ],
     },

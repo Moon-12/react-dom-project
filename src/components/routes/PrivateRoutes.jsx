@@ -24,7 +24,7 @@ const PrivateRoute = () => {
     return <Outlet />;
   }
 
-  return redirect ? <Navigate to="/login" /> : null;
+  return redirect ? <Navigate to="/" /> : null;
 };
 
 export default PrivateRoute;

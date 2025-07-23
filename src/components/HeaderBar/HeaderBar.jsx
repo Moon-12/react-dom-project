@@ -144,22 +144,9 @@ const HeaderBar = () => {
               })}
             </Menu>
           </Box>
-          <img src={logo} alt="logo" className="mobile-view-logo" />
-          <Typography
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontWeight: 700,
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            {appName}
-          </Typography>
+          <Link to="/">
+            <img src={logo} alt="logo" className="mobile-view-logo" />
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Link to="/" className="header-links">
               <img src={logo} alt="logo" className="logo" />
