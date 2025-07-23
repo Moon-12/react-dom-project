@@ -58,10 +58,19 @@ const ProjectDetails = () => {
         <Grid item xs={12} md={8}>
           <Paper elevation={2} sx={{ p: 4, borderRadius: 4 }}>
             <Typography
-              variant="h3"
               fontWeight={700}
               gutterBottom
               color="primary.dark"
+              sx={{
+                fontSize: {
+                  xs: "1.5rem", // ~h5
+                  sm: "1.75rem", // ~h4
+                  md: "2rem", // ~h3
+                },
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+                width: "100%",
+              }}
             >
               {project.name}
             </Typography>
@@ -71,7 +80,7 @@ const ProjectDetails = () => {
             </Typography>
 
             {/* Action Buttons */}
-            <Stack direction="row" spacing={2} mb={3}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} mb={3}>
               <Button
                 variant="contained"
                 color="primary"
@@ -101,41 +110,46 @@ const ProjectDetails = () => {
             <Typography variant="h6" fontWeight={600} mb={1}>
               Technologies Used:
             </Typography>
-            <Stack
-              direction="row"
-              spacing={1}
-              useFlexGap
-              flexWrap="wrap"
-              sx={{ rowGap: 1, columnGap: 1 }}
-            >
+            <Grid container spacing={2}>
               {project.technologies.map((tech, index) => (
-                <Chip
+                <Grid
+                  item
                   key={index}
-                  label={tech}
-                  icon={<span style={{ fontSize: "1rem" }}>💡</span>}
-                  sx={(theme) => ({
-                    cursor: "pointer",
-                    mb: 1,
-                    px: 1.5,
-                    py: 0.5,
-                    fontWeight: 600,
-                    fontSize: "0.85rem",
-                    backgroundColor: lighten(theme.palette.primary.main, 0.9),
-                    borderRadius: "16px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
-                    "& .MuiChip-icon": {
-                      marginLeft: "4px",
-                      color: "#ffff00",
-                    },
-                    "&:hover": {
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-                      transform: "scale(1.05)",
-                      transition: "all 0.3s ease-in-out",
-                    },
-                  })}
-                />
+                  xs={12} // 1 per row on extra-small screens
+                  sm={6} // 2 per row on small screens
+                  md={4} // 3 per row on medium screens
+                  lg={3} // 4 per row on large screens
+                >
+                  <Chip
+                    label={tech}
+                    icon={<span style={{ fontSize: "1rem" }}>💡</span>}
+                    sx={(theme) => ({
+                      width: "100%",
+                      fontWeight: 600,
+                      fontSize: "0.85rem",
+                      px: 1.5,
+                      py: 0.5,
+                      borderRadius: "16px",
+                      cursor: "pointer",
+                      backgroundColor: lighten(
+                        theme.palette.primary.main,
+                        0.92
+                      ),
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+                      "& .MuiChip-icon": {
+                        marginLeft: "4px",
+                        color: "#ffff00",
+                      },
+                      "&:hover": {
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                        transform: "scale(1.05)",
+                        transition: "all 0.3s ease-in-out",
+                      },
+                    })}
+                  />
+                </Grid>
               ))}
-            </Stack>
+            </Grid>
           </Paper>
         </Grid>
 
