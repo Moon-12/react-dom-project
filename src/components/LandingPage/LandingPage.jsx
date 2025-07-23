@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../firebase/firebaseConfig";
 import { signInAnonymously } from "firebase/auth";
@@ -7,12 +7,12 @@ import { Button, IconButton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import "./LandingPage.css";
 import CodeIcon from "@mui/icons-material/Code";
-import { GoogleIcon } from "../../icons/GoogleIcon";
 import CatAnimation from "./CatAnimation/CatAnimation";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import AboutMe from "./AboutMe/AboutMe";
 import { Typography } from "@mui/material";
+import GoogleLoginButton from "../GoogleLoginButton/GoogleLoginButton";
 
 const LandingPage = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.loginResponse);
@@ -59,16 +59,7 @@ const LandingPage = () => {
           </Typography>
           <div>React Developer, Photographer, Cat Lover</div>
           <div className="login-action-btn-wrapper ">
-            <Link to="/login">
-              <Button variant="contained">
-                <div className="button-content">
-                  <div className="col ">
-                    <GoogleIcon />
-                  </div>
-                  <div className="col">Signup with Google</div>
-                </div>
-              </Button>
-            </Link>
+            <GoogleLoginButton />
             <Button onClick={handleGuestLoginFn} variant="contained">
               <div className="button-content">
                 <div className="col">
