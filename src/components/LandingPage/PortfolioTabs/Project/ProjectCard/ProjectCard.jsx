@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
 const ProjectCard = ({ projectInfo }) => {
   return (
     <Card
@@ -15,17 +16,29 @@ const ProjectCard = ({ projectInfo }) => {
         flexDirection: "column",
       }}
     >
-      <CardMedia
-        component="img"
-        alt={projectInfo.name}
-        image={projectInfo.imageUrl}
+      <Box
         sx={{
+          width: "100%",
           height: 140,
-          objectFit: "contain",
           backgroundColor: "#f5f5f5",
           p: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
-      />
+      >
+        <CardMedia
+          component="img"
+          alt={projectInfo.name}
+          image={projectInfo.imageUrl}
+          sx={{
+            maxHeight: "100%",
+            maxWidth: "100%",
+            objectFit: "contain",
+            backgroundColor: "#f5f5f5",
+          }}
+        />
+      </Box>
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           gutterBottom
